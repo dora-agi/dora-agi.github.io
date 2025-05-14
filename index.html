@@ -1,15 +1,120 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoraTech - 成都多纳科技有限公司</title>
+    <title>DoraTech | AI-Powered Solutions 多纳科技 | AI智能解决方案</title>
+    
+    <!-- SEO Meta Tags (English & Chinese) -->
+    <meta name="description" content="DoraTech specializes in AI-powered solutions including Dora, an AI astrologer and emotional healing companion. We deliver innovative software development and technology solutions. 多纳科技专注于AI智能解决方案，包括Dora——一款AI占星师与情感疗愈助手。我们提供创新的软件开发与技术服务。">
+    <meta name="keywords" content="AI, artificial intelligence, software development, Dora, astrology, emotional healing, technology solutions, Chengdu, 人工智能, 软件开发, 多纳, 占星, 情感疗愈, 科技解决方案, 成都">
+    <meta name="author" content="DoraTech 多纳科技">
+
+    <!-- Local SEO Verification -->
+    <meta name="baidu-site-verification" content="your-baidu-verification-code-here">
+    <meta name="360-site-verification" content="your-360-verification-code-here">
+    <meta name="sogou_site_verification" content="your-sogou-verification-code-here">
+    <meta name="msvalidate.01" content="your-bing-verification-code-here">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://doratech.site/">
+    <meta property="og:title" content="DoraTech - AI-Powered Solutions 多纳科技 - AI智能解决方案">
+    <meta property="og:description" content="Empowering the Future with AI, Leading Innovation with Technology. Explore our AI astrologer and emotional healing companion, Dora. 用AI赋能未来，以科技引领创新。探索我们的AI占星师与情感疗愈助手Dora。">
+    <meta property="og:image" content="resources/dora_logo.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://doratech.site/">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- AOS CSS (Animate On Scroll) -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Structured Data for Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DoraTech",
+      "alternateName": "Chengdu Dora Technology Co., Ltd.",
+      "url": "https://doratech.site/",
+      "logo": "https://doratech.site/resources/dora_logo.jpg",
+      "description": "DoraTech specializes in AI-powered solutions including Dora, an AI astrologer and emotional healing companion.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chengdu",
+        "addressRegion": "Sichuan",
+        "addressCountry": "CN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@doratech.cn",
+        "contactType": "customer service"
+      }
+    }
+    </script>
+
+    <!-- Structured Data for SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Dora",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS, Android",
+      "description": "Your AI Astrologer & Emotional Healing Companion",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free to download with in-app purchases available"
+      }
+    }
+    </script>
+
+    <!-- Structured Data for FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Dora?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dora is an AI-powered application that combines astrology insights with emotional healing capabilities. It provides personalized companionship, guidance, and support through advanced artificial intelligence algorithms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What services does DoraTech offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DoraTech specializes in both software development and software sales. We provide customized software development services for web applications, mobile apps, and enterprise solutions, as well as offering mature software products designed to help businesses improve efficiency."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can Dora help with emotional healing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dora uses advanced AI to provide personalized emotional healing by analyzing your astrological profile, understanding your emotional patterns, and offering tailored guidance. The app provides 24/7 empathetic companionship to support your emotional wellbeing journey."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Dora available on both iOS and Android?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Dora is available for download on both iOS and Android platforms, making it accessible to virtually all smartphone users."
+          }
+        }
+      ]
+    }
+    </script>
 
     <!-- Custom Styles -->
     <style>
@@ -328,7 +433,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="resources/dora_logo.jpg" alt="DoraTech Logo" class="dora-logo" />
+                <img src="resources/dora_logo.jpg" alt="DoraTech Company Logo" class="dora-logo" />
                 <span class="lang-zh">多纳科技</span>
                 <span class="lang-en">DoraTech</span>
             </a>
@@ -377,7 +482,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section" data-aos="fade-in" data-aos-duration="1000">
+    <section id="home" class="hero-section" data-aos="fade-in" data-aos-duration="1000" aria-label="Hero Banner">
         <div class="container">
             <h1 data-aos="fade-down" data-aos-delay="200">
                 <span class="lang-zh">成都多纳科技有限公司</span>
@@ -395,15 +500,15 @@
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="section-padding">
+    <section id="about" class="section-padding" aria-labelledby="about-heading">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
+            <h2 id="about-heading" class="section-title" data-aos="fade-up">
                 <span class="lang-zh">关于我们</span>
                 <span class="lang-en">About Us</span>
             </h2>
             <div class="row align-items-center">
                 <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop" class="img-fluid rounded shadow" alt="Team discussing">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop" class="img-fluid rounded shadow" alt="DoraTech team members collaborating on AI technology solutions">
                 </div>
                 <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
                     <h4>
@@ -424,9 +529,9 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section-padding bg-light">
+    <section id="services" class="section-padding bg-light" aria-labelledby="services-heading">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
+            <h2 id="services-heading" class="section-title" data-aos="fade-up">
                 <span class="lang-zh">主营业务</span>
                 <span class="lang-en">Our Main Business</span>
             </h2>
@@ -467,9 +572,9 @@
     </section>
 
     <!-- Featured Product Section -->
-    <section id="product" class="section-padding">
+    <section id="product" class="section-padding" aria-labelledby="product-heading">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
+            <h2 id="product-heading" class="section-title" data-aos="fade-up">
                 <span class="lang-zh">特色产品: Dora</span>
                 <span class="lang-en">Featured Product: Dora</span>
             </h2>
@@ -479,7 +584,7 @@
                         <div class="row g-0">
                             <div class="col-md-5 product-img-container bg-light d-flex align-items-center justify-content-center">
                                 <div class="phone-mockup">
-                                    <img src="resources/dora.jpg" class="app-screenshot" alt="Dora App">
+                                    <img src="resources/dora.jpg" class="app-screenshot" alt="Dora AI application interface showing astrology and emotional healing features">
                                 </div>
                             </div>
                             <div class="col-md-7">
@@ -518,9 +623,9 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding bg-light">
+    <section id="contact" class="section-padding bg-light" aria-labelledby="contact-heading">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
+            <h2 id="contact-heading" class="section-title" data-aos="fade-up">
                 <span class="lang-zh">联系我们</span>
                 <span class="lang-en">Contact Us</span>
             </h2>
@@ -547,68 +652,69 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-4 bg-dark text-white text-center">
+    <footer class="bg-dark text-light py-4" role="contentinfo">
         <div class="container">
-            <p class="mb-0">
-                &copy; <span id="currentYear"></span> 
-                <span class="lang-zh">成都多纳科技有限公司. 版权所有.</span>
-                <span class="lang-en">Chengdu Dora Technology Co., Ltd. All rights reserved.</span>
-            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        <span class="lang-zh">© 2025 成都多纳科技有限公司 版权所有</span>
+                        <span class="lang-en">© 2025 Chengdu Dora Technology Co., Ltd. All Rights Reserved</span>
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>
+                        <a href="#" class="text-light text-decoration-none">
+                            <span class="lang-zh">隐私政策</span>
+                            <span class="lang-en">Privacy Policy</span>
+                        </a> | 
+                        <a href="#" class="text-light text-decoration-none">
+                            <span class="lang-zh">条款与条件</span>
+                            <span class="lang-en">Terms & Conditions</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS Bundle (Popper.js and Bootstrap JS) -->
+    <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <!-- AOS JS -->
+    
+    <!-- AOS Initialization -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
     <script>
-        // Initialize AOS
         AOS.init({
             duration: 800,
-            once: false,
+            once: true
         });
-
-        // Language Switching Function
+    </script>
+    
+    <!-- Language Switcher Script -->
+    <script>
+        // Check if language preference is stored in localStorage
+        let currentLang = localStorage.getItem('language') || 'en';
+        
+        // Apply language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            switchLanguage(currentLang);
+        });
+        
         function switchLanguage(lang) {
+            // Store language preference
+            localStorage.setItem('language', lang);
+            
+            // Set html lang attribute
             document.documentElement.lang = lang;
+            
+            // Show/hide elements based on language
             if (lang === 'zh') {
-                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
                 document.querySelectorAll('.lang-zh').forEach(el => el.style.display = 'inline');
+                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
             } else {
                 document.querySelectorAll('.lang-zh').forEach(el => el.style.display = 'none');
                 document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'inline');
             }
-            localStorage.setItem('preferredLanguage', lang);
-
-            const activeLink = document.querySelector('.nav-link.active');
-            if(activeLink) {
-                const href = activeLink.getAttribute('href');
-                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                document.querySelector(`.nav-link[href="${href}"]`).classList.add('active');
-            }
         }
-
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Check for saved language preference
-        document.addEventListener('DOMContentLoaded', () => {
-            const preferredLanguage = localStorage.getItem('preferredLanguage');
-            if (preferredLanguage) {
-                switchLanguage(preferredLanguage);
-            } else {
-                switchLanguage('en');
-            }
-
-            const mainNav = document.body.querySelector('#navbarNav');
-            if (mainNav) {
-                new bootstrap.ScrollSpy(document.body, {
-                    target: '#navbarNav',
-                    offset: 70,
-                });
-            }
-        });
     </script>
 </body>
 </html>
