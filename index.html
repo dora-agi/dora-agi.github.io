@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoraTech - 成都多纳科技有限公司</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- AOS CSS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            scroll-behavior: smooth;
+            line-height: 1.7;
+            color: #333;
+        }
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .navbar-brand img.dora-logo {
+            height: 40px;
+            width: auto;
+            max-width: 120px;
+            object-fit: contain;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2020&auto=format&fit=crop') center/cover no-repeat;
+            color: white;
+            padding: 8rem 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: clamp(2.8rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        .hero-section p {
+            font-size: clamp(1.1rem, 3vw, 1.35rem);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+        .section-padding {
+            padding: 5rem 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: #333;
+        }
+        .lang-zh { display: none; }
+        .lang-en { display: inline; }
+
+        .nav-link {
+            transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+            padding: 0.75rem 1rem;
+            font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #007bff !important;
+        }
+        .nav-link:hover {
+            transform: translateY(-1px);
+        }
+
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        .product-card .card-title {
+            font-weight: 600;
+        }
+        .product-card .card-body {
+            padding: 2rem;
+        }
+
+        #services .p-4.shadow-sm {
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        #services .p-4.shadow-sm:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+            vertical-align: middle;
+        }
+
+        img.img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section p:not(.lead):not(.card-text) {
+            margin-bottom: 1.25rem;
+        }
+        section ul {
+            margin-bottom: 1.25rem;
+        }
+        section h4 {
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+        .btn-outline-primary {
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-outline-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        footer.bg-dark {
+            background-color: #2c3034 !important;
+        }
+        footer p {
+            margin-bottom: 0;
+        }
+
+        /* 产品特色展示 */
+        .product-img-container {
+            overflow: hidden;
+            position: relative;
+            padding: 3rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 650px;
+        }
+        
+        .product-logo {
+            max-width: 80%;
+            max-height: 300px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-logo {
+            transform: scale(1.05);
+        }
+        
+        /* Phone mockup styles */
+        .phone-mockup {
+            position: relative;
+            width: 280px;
+            height: 580px;
+            background: #111;
+            border-radius: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border: 8px solid #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transform: rotate(-5deg);
+            transition: transform 0.5s ease;
+            margin: 0 auto;
+        }
+        
+        .phone-mockup:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 30px;
+            background: #111;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 2;
+        }
+        
+        .app-screenshot {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .phone-mockup {
+            transform: rotate(-2deg) translateY(-10px);
+        }
+        
+        .product-card:hover .app-screenshot {
+            transform: scale(1.05);
+        }
+        
+        .product-feature-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-feature-img {
+            transform: scale(1.03);
+        }
+        
+        .feature-list li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 0.5rem;
+        }
+        
+        .feature-icon {
+            display: inline-block;
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 767px) {
+            .product-card .row {
+                flex-direction: column;
+            }
+            .product-card img {
+                border-radius: 15px 15px 0 0 !important;
+                max-height: 250px !important;
+            }
+            .product-img-container {
+                padding: 2rem 0;
+                min-height: 450px;
+            }
+            .phone-mockup {
+                width: 200px;
+                height: 400px;
+                transform: rotate(0deg);
+                margin: 2rem auto;
+            }
+            .product-card:hover .phone-mockup {
+                transform: translateY(-5px);
+            }
+            .section-padding {
+                padding: 3rem 0;
+            }
+            .section-title {
+                margin-bottom: 2rem;
+                font-size: 2rem;
+            }
+            .navbar-brand img.dora-logo {
+                height: 32px;
+                max-width: 90px;
+            }
+            .feature-list {
+                margin-top: 1.5rem;
+                text-align: left;
+            }
+            .product-logo {
+                max-width: 90%;
+                max-height: 200px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .product-img-container {
+                padding: 4rem 0;
+            }
+            
+            .product-logo {
+                max-height: 350px;
+            }
+            
+            #product .section-title {
+                margin-bottom: 2rem;
+            }
+        }
+
+        #product {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        @media (min-width: 1200px) {
+            #product {
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+            }
+            
+            .product-card {
+                margin-top: 2rem;
+                margin-bottom: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="resources/dora_logo.jpg" alt="DoraTech Logo" class="dora-logo" />
+                <span class="lang-zh">多纳科技</span>
+                <span class="lang-en">DoraTech</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">
+                            <span class="lang-zh">首页</span><span class="lang-en">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">
+                            <span class="lang-zh">关于我们</span><span class="lang-en">About Us</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">
+                            <span class="lang-zh">主营业务</span><span class="lang-en">Services</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#product">
+                            <span class="lang-zh">特色产品</span><span class="lang-en">Product</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">
+                            <span class="lang-zh">联系我们</span><span class="lang-en">Contact</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="lang-zh">语言</span><span class="lang-en">Language</span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh')">简体中文</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('en')">English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section" data-aos="fade-in" data-aos-duration="1000">
+        <div class="container">
+            <h1 data-aos="fade-down" data-aos-delay="200">
+                <span class="lang-zh">成都多纳科技有限公司</span>
+                <span class="lang-en">Chengdu Dora Technology Co., Ltd.</span>
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="400">
+                <span class="lang-zh">AI赋能未来，科技引领创新。</span>
+                <span class="lang-en">Empowering the Future with AI, Leading Innovation with Technology.</span>
+            </p>
+            <a href="#contact" class="btn btn-primary btn-lg mt-3" data-aos="zoom-in" data-aos-delay="600">
+                <span class="lang-zh">联系我们</span>
+                <span class="lang-en">Contact Us</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="lang-zh">关于我们</span>
+                <span class="lang-en">About Us</span>
+            </h2>
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop" class="img-fluid rounded shadow" alt="Team discussing">
+                </div>
+                <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
+                    <h4>
+                        <span class="lang-zh">我们的故事</span>
+                        <span class="lang-en">Our Story</span>
+                    </h4>
+                    <p>
+                        <span class="lang-zh">成都多纳科技有限公司成立于2025年4月16日，我们专注于利用尖端技术，特别是人工智能，来解决现实世界的问题并创造有价值的解决方案。</span>
+                        <span class="lang-en">Founded on April 16, 2025, Chengdu Dora Technology Co., Ltd. focuses on leveraging cutting-edge technology, especially artificial intelligence, to solve real-world problems and create valuable solutions.</span>
+                    </p>
+                    <p>
+                        <span class="lang-zh">我们的团队由经验丰富的专业人士组成，对创新充满热情，致力于为客户提供高质量的软件产品和服务。</span>
+                        <span class="lang-en">Our team consists of experienced professionals passionate about innovation and dedicated to delivering high-quality software products and services to our clients.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="lang-zh">主营业务</span>
+                <span class="lang-en">Our Main Business</span>
+            </h2>
+            <div class="row text-center">
+                <div class="col-md-6" data-aos="zoom-in-up" data-aos-delay="100">
+                    <div class="p-4 shadow-sm bg-white rounded h-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-code-slash mb-3 text-primary" viewBox="0 0 16 16">
+                            <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+                        </svg>
+                        <h4>
+                            <span class="lang-zh">软件开发</span>
+                            <span class="lang-en">Software Development</span>
+                        </h4>
+                        <p>
+                            <span class="lang-zh">我们提供定制化的软件开发服务，涵盖Web应用、移动应用以及企业级解决方案。我们的开发流程注重效率和质量，确保交付卓越的产品。</span>
+                            <span class="lang-en">We offer customized software development services, including web applications, mobile apps, and enterprise solutions. Our development process emphasizes efficiency and quality to ensure the delivery of exceptional products.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="p-4 shadow-sm bg-white rounded h-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-cart-check mb-3 text-success" viewBox="0 0 16 16">
+                            <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                          </svg>
+                        <h4>
+                            <span class="lang-zh">软件销售</span>
+                            <span class="lang-en">Software Sales</span>
+                        </h4>
+                        <p>
+                            <span class="lang-zh">我们不仅开发软件，也提供成熟的软件产品销售。我们的产品旨在帮助企业提高效率、优化流程并实现业务增长。</span>
+                            <span class="lang-en">We not only develop software but also offer mature software products for sale. Our products are designed to help businesses improve efficiency, optimize processes, and achieve growth.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Product Section -->
+    <section id="product" class="section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="lang-zh">特色产品: Dora</span>
+                <span class="lang-en">Featured Product: Dora</span>
+            </h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card product-card shadow-lg border-0 mt-lg-5" data-aos="fade-up" data-aos-delay="100">
+                        <div class="row g-0">
+                            <div class="col-md-5 product-img-container bg-light d-flex align-items-center justify-content-center">
+                                <div class="phone-mockup">
+                                    <img src="resources/dora.jpg" class="app-screenshot" alt="Dora App">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body p-4 p-md-5 text-center text-md-start">
+                                    <h3 class="card-title text-primary">Dora</h3>
+                                    <p class="card-text lead">
+                                        <span class="lang-zh">您的AI占星师与情感疗愈伙伴</span>
+                                        <span class="lang-en">Your AI Astrologer & Emotional Healing Companion</span>
+                                    </p>
+                                    <p>
+                                        <span class="lang-zh">Dora是我们的一款旗舰应用，在AI驱动的占星术和情感疗愈领域崭露头角。它结合了先进的人工智能和深刻的情感理解，为您提供个性化的陪伴、指导和支持。</span>
+                                        <span class="lang-en">Dora is one of our flagship apps, making waves in AI-powered astrology and emotional healing. It combines advanced AI with deep emotional understanding to provide personalized companionship, guidance, and support.</span>
+                                    </p>
+                                    <ul class="list-unstyled feature-list mt-4">
+                                        <li><span class="feature-icon">✨</span><span class="lang-zh">AI驱动的占星见解</span><span class="lang-en">AI-driven astrology insights</span></li>
+                                        <li><span class="feature-icon">💖</span><span class="lang-zh">个性化情感疗愈</span><span class="lang-en">Personalized emotional healing</span></li>
+                                        <li><span class="feature-icon">💬</span><span class="lang-zh">全天候共情陪伴</span><span class="lang-en">24/7 empathetic companionship</span></li>
+                                        <li>
+                                            <span class="feature-icon">🌟</span><span class="lang-zh">星盘、星座分析与指引</span>
+                                            <span class="lang-en">Natal chart & zodiac analysis</span>
+                                        </li>
+                                    </ul>
+                                    <div class="text-center text-md-start mt-4">
+                                        <a href="#" class="btn btn-outline-primary btn-lg">
+                                            <span class="lang-zh">探索Dora</span>
+                                            <span class="lang-en">Explore Dora</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="lang-zh">联系我们</span>
+                <span class="lang-en">Contact Us</span>
+            </h2>
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center" data-aos="fade-in" data-aos-delay="100">
+                    <p class="lead">
+                        <span class="lang-zh">我们期待与您交流合作！</span>
+                        <span class="lang-en">We look forward to connecting with you!</span>
+                    </p>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-geo-alt-fill contact-icon text-danger" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+                        <strong><span class="lang-zh">地址：</span><span class="lang-en">Address:</span></strong><br>
+                        <span class="lang-zh">中国（四川）自由贸易试验区成都高新区府城大道西段399号天府新谷7号楼C座6楼7号</span>
+                        <span class="lang-en">Room 7, 6th Floor, Building C, No. 7, Tianfu New Valley, No. 399 West Section of Fucheng Avenue, High-tech Zone, China (Sichuan) Pilot Free Trade Zone, Chengdu</span>
+                    </p>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-envelope-fill contact-icon text-info" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/></svg>
+                        <strong><span class="lang-zh">邮箱：</span><span class="lang-en">Email:</span></strong><br>
+                        <a href="mailto:info@doratech.cn">info@doratech.cn</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white text-center">
+        <div class="container">
+            <p class="mb-0">
+                &copy; <span id="currentYear"></span> 
+                <span class="lang-zh">成都多纳科技有限公司. 版权所有.</span>
+                <span class="lang-en">Chengdu Dora Technology Co., Ltd. All rights reserved.</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle (Popper.js and Bootstrap JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: false,
+        });
+
+        // Language Switching Function
+        function switchLanguage(lang) {
+            document.documentElement.lang = lang;
+            if (lang === 'zh') {
+                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.lang-zh').forEach(el => el.style.display = 'inline');
+            } else {
+                document.querySelectorAll('.lang-zh').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'inline');
+            }
+            localStorage.setItem('preferredLanguage', lang);
+
+            const activeLink = document.querySelector('.nav-link.active');
+            if(activeLink) {
+                const href = activeLink.getAttribute('href');
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                document.querySelector(`.nav-link[href="${href}"]`).classList.add('active');
+            }
+        }
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Check for saved language preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const preferredLanguage = localStorage.getItem('preferredLanguage');
+            if (preferredLanguage) {
+                switchLanguage(preferredLanguage);
+            } else {
+                switchLanguage('en');
+            }
+
+            const mainNav = document.body.querySelector('#navbarNav');
+            if (mainNav) {
+                new bootstrap.ScrollSpy(document.body, {
+                    target: '#navbarNav',
+                    offset: 70,
+                });
+            }
+        });
+    </script>
+</body>
+</html>
