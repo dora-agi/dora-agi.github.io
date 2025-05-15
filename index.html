@@ -30,28 +30,54 @@
     <meta name="description" content="DoraTech specializes in AI-powered solutions including Dora, an AI astrologer and emotional healing companion. We deliver innovative software development and technology solutions. 多纳科技专注于AI智能解决方案，包括Dora——一款AI占星师与情感疗愈助手。我们提供创新的软件开发与技术服务。">
     <meta name="keywords" content="AI, artificial intelligence, software development, Dora, astrology, emotional healing, technology solutions, Chengdu, 人工智能, 软件开发, 多纳, 占星, 情感疗愈, 科技解决方案, 成都">
     <meta name="author" content="DoraTech 多纳科技">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="English">
+    <meta name="geo.region" content="CN-51">
+    <meta name="geo.placename" content="Chengdu">
+    <meta name="geo.position" content="30.6667;104.0667">
+    <meta name="ICBM" content="30.6667, 104.0667">
 
     <!-- Local SEO Verification -->
-    <meta name="baidu-site-verification" content="your-baidu-verification-code-here">
+    <!-- <meta name="baidu-site-verification" content="your-baidu-verification-code-here">
     <meta name="360-site-verification" content="your-360-verification-code-here">
     <meta name="sogou_site_verification" content="your-sogou-verification-code-here">
-    <meta name="msvalidate.01" content="your-bing-verification-code-here">
+    <meta name="msvalidate.01" content="your-bing-verification-code-here"> -->
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://doratech.site/">
     <meta property="og:title" content="DoraTech - AI-Powered Solutions 多纳科技 - AI智能解决方案">
-    <meta property="og:description" content="Empowering the Future with AI, Leading Innovation with Technology. Explore our AI astrologer and emotional healing companion, Dora. 用AI赋能未来，以科技引领创新。探索我们的AI占星师与情感疗愈助手Dora。">
+    <meta property="og:description" content="Advancing the Future through AI, Driving Innovation with Technology. Explore our AI astrologer and emotional healing companion, Dora. 用AI赋能未来，以科技引领创新。探索我们的AI占星师与情感疗愈助手Dora。">
     <meta property="og:image" content="resources/dora.jpg">
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DoraTech - AI-Powered Solutions 多纳科技 - AI智能解决方案">
+    <meta name="twitter:description" content="Advancing the Future through AI, Driving Innovation with Technology. Explore our AI astrologer and emotional healing companion, Dora.">
+    <meta name="twitter:image" content="resources/dora.jpg">
+    
+    <!-- Mobile App Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DoraTech">
+    <meta name="application-name" content="DoraTech">
+    <meta name="theme-color" content="#121A29">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://doratech.site/">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap CSS 本地引用 -->
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 
-    <!-- AOS CSS (Animate On Scroll) -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- AOS CSS 本地引用 -->
+    <link rel="stylesheet" href="resources/css/aos.css">
+
+    <!-- Font Awesome 本地引用 -->
+    <link rel="stylesheet" href="resources/css/fontawesome.min.css">
+
+    <!-- SEO优化 - Sitemap链接 -->
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
 
     <!-- Structured Data for Organization -->
     <script type="application/ld+json">
@@ -73,7 +99,8 @@
         "@type": "ContactPoint",
         "email": "info@doratech.cn",
         "contactType": "customer service"
-      }
+      },
+      "foundingDate": "2025-04-16"
     }
     </script>
 
@@ -270,12 +297,17 @@
             padding: 0.75rem 0;
             background-color: var(--primary-light);
             border: 1px solid rgba(10, 239, 255, 0.2);
+            min-width: 10rem;
         }
         
         .dropdown-item {
-            padding: 0.5rem 1.5rem;
-            transition: all 0.2s ease;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s ease;
             color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 500;
         }
         
         .dropdown-item:hover {
@@ -284,9 +316,105 @@
             transform: translateX(5px);
         }
         
+        .dropdown-item.active {
+            background-color: rgba(10, 239, 255, 0.15);
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px rgba(10, 239, 255, 0.3);
+            position: relative;
+        }
+        
+        .dropdown-item.active::after {
+            content: '✓';
+            position: absolute;
+            right: 1.5rem;
+            color: var(--neon-blue);
+            font-weight: bold;
+        }
+        
+        .language-selector .nav-link {
+            background: rgba(10, 239, 255, 0.1);
+            border-radius: 12px;
+            margin-left: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            border: 1px solid rgba(10, 239, 255, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .language-selector .nav-link:hover {
+            background: rgba(10, 239, 255, 0.2);
+            border-color: rgba(10, 239, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(10, 239, 255, 0.2);
+        }
+        
+        .language-selector .nav-link:after {
+            display: none;
+        }
+        
+        .language-selector .nav-link i {
+            font-size: 0.85rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .language-selector .nav-link:hover i {
+            transform: rotate(180deg);
+        }
+        
+        /* 修改移动端菜单样式 */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background-color: rgba(18, 26, 41, 0.97);
+                border-radius: 15px;
+                padding: 1rem;
+                margin-top: 1rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(10, 239, 255, 0.1);
+                border: 1px solid rgba(10, 239, 255, 0.15);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+            
+            .navbar-nav {
+                margin: 0.5rem 0;
+            }
+            
+            .nav-item {
+                margin: 0.35rem 0;
+            }
+            
+            .nav-link {
+                border-radius: 10px;
+                padding: 0.75rem 1.25rem;
+            }
+            
+            .nav-link:hover, .nav-link.active {
+                background-color: rgba(10, 239, 255, 0.1);
+            }
+            
+            .nav-link:after {
+                display: none;
+            }
+            
+            .dropdown-menu {
+                background-color: rgba(30, 42, 69, 0.6);
+                margin-top: 0.5rem;
+                border: 1px solid rgba(10, 239, 255, 0.1);
+            }
+            
+            .language-selector {
+                margin-top: 0.5rem;
+            }
+            
+            .language-selector .nav-link {
+                margin-left: 0;
+            }
+        }
+        
         /* 英雄部分优化 */
         .hero-section {
-            background: linear-gradient(rgba(18, 26, 41, 0.7), rgba(18, 26, 41, 0.8)), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2020&auto=format&fit=crop') center/cover no-repeat;
+            background: linear-gradient(rgba(18, 26, 41, 0.7), rgba(18, 26, 41, 0.8)), url('resources/tech-background.jpg') center/cover no-repeat;
             color: white;
             padding: 12rem 0;
             text-align: center;
@@ -600,6 +728,47 @@
         .btn-secondary:hover {
             transform: translateY(-3px);
             box-shadow: 0 7px 20px rgba(0, 255, 178, 0.4), 0 0 30px rgba(0, 255, 178, 0.15);
+        }
+
+        /* 产品页面按钮样式 */
+        .btn-outline-product {
+            border: 2px solid var(--neon-blue);
+            background: transparent;
+            color: var(--neon-blue);
+            border-radius: 12px;
+            padding: 0.75rem 1.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(10, 239, 255, 0.1);
+            z-index: 1;
+        }
+        
+        .btn-outline-product::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .btn-outline-product:hover {
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 5px 20px rgba(10, 239, 255, 0.3);
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+        
+        .btn-outline-product:hover::before {
+            width: 100%;
         }
 
         .card {
@@ -1181,6 +1350,7 @@
             overflow: hidden;
             background-color: var(--primary-dark);
             padding: 7rem 0;
+            background: linear-gradient(to bottom, rgba(18, 26, 41, 1), rgba(30, 42, 69, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="rgba(18, 26, 41, 1)" /><circle cx="20" cy="20" r="2" fill="rgba(10, 239, 255, 0.2)" /><circle cx="60" cy="30" r="2" fill="rgba(164, 79, 235, 0.2)" /><circle cx="80" cy="70" r="2" fill="rgba(10, 239, 255, 0.2)" /><circle cx="40" cy="80" r="2" fill="rgba(164, 79, 235, 0.2)" /></svg>');
         }
         
         .product-section::before {
@@ -1193,6 +1363,7 @@
             border-radius: 50%;
             background: radial-gradient(circle, rgba(164, 75, 255, 0.1) 0%, rgba(164, 75, 255, 0) 70%);
             z-index: 0;
+            animation: pulse 8s infinite alternate;
         }
         
         .product-section::after {
@@ -1205,6 +1376,530 @@
             border-radius: 50%;
             background: radial-gradient(circle, rgba(10, 239, 255, 0.1) 0%, rgba(10, 239, 255, 0) 70%);
             z-index: 0;
+            animation: pulse 6s infinite alternate-reverse;
+        }
+        
+        @keyframes pulse {
+            0% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+        }
+        
+        .product-card {
+            background: rgba(30, 42, 69, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(10, 239, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 0 20px rgba(10, 239, 255, 0.1);
+        }
+        
+        .product-card:hover {
+            border-color: rgba(10, 239, 255, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(10, 239, 255, 0.2);
+        }
+        
+        .product-img-container {
+            background: linear-gradient(135deg, rgba(18, 26, 41, 0.7), rgba(30, 42, 69, 0.8));
+            border-right: 1px solid rgba(10, 239, 255, 0.2);
+        }
+        
+        .phone-mockup {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(10, 239, 255, 0.2);
+        }
+        
+        .product-card .card-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(10, 239, 255, 0.4);
+        }
+        
+        .product-card .lead {
+            color: var(--neon-blue);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-cta {
+            margin-top: 2rem;
+        }
+        
+        .feature-list {
+            padding-left: 0.5rem;
+            list-style: none;
+        }
+        
+        .feature-list li {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px rgba(10, 239, 255, 0.4);
+        }
+        
+        /* 优化响应式布局 */
+        @media (max-width: 767px) {
+            .product-card .row {
+                flex-direction: column;
+            }
+            .product-card img {
+                border-radius: 15px 15px 0 0 !important;
+                max-height: 250px !important;
+            }
+            .product-img-container {
+                padding: 2rem 0;
+                min-height: 450px;
+            }
+            .phone-mockup {
+                width: 200px;
+                height: 400px;
+                transform: rotate(0deg);
+                margin: 2rem auto;
+            }
+            .product-card:hover .phone-mockup {
+                transform: translateY(-5px);
+            }
+            .section-padding {
+                padding: 5rem 0;
+            }
+            .section-title {
+                font-size: 2.2rem;
+                margin-bottom: 2rem;
+            }
+            .navbar-brand img.dora-logo {
+                height: 32px;
+                max-width: 90px;
+            }
+            .feature-list {
+                margin-top: 1.5rem;
+                text-align: left;
+            }
+            .product-logo {
+                max-width: 90%;
+                max-height: 200px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .product-img-container {
+                padding: 4rem 0;
+            }
+            
+            .product-logo {
+                max-height: 350px;
+            }
+            
+            #product .section-title {
+                margin-bottom: 2rem;
+            }
+        }
+
+        #product {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        @media (min-width: 1200px) {
+            #product {
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+            }
+            
+            .product-card {
+                margin-top: 2rem;
+                margin-bottom: 4rem;
+            }
+        }
+
+        /* 现代化的联系表单样式 */
+        .contact-section-bg {
+            position: relative;
+            overflow: hidden;
+            background-color: var(--primary-dark);
+            padding: 7rem 0;
+        }
+        
+        .contact-section-bg::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(164, 75, 255, 0.1) 0%, rgba(164, 75, 255, 0) 70%);
+            z-index: 0;
+        }
+        
+        .contact-section-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(10, 239, 255, 0.1) 0%, rgba(10, 239, 255, 0) 70%);
+            z-index: 0;
+        }
+        
+        #contact .section-title {
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+        
+        #contact .lead {
+            color: var(--neon-blue);
+        }
+        
+        .text-glow {
+            text-shadow: 0 0 10px rgba(10, 239, 255, 0.4);
+        }
+        
+        .contact-form-card {
+            border: 1px solid rgba(10, 239, 255, 0.25);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(10, 239, 255, 0.15), 0 0 30px rgba(10, 239, 255, 0.05);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            background: rgba(30, 42, 69, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+        
+        .contact-form-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 239, 255, 0.03), rgba(164, 79, 235, 0.03));
+            z-index: 0;
+        }
+        
+        .contact-form-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(10, 239, 255, 0.25), 0 0 20px rgba(164, 79, 235, 0.15);
+            border: 1px solid rgba(10, 239, 255, 0.4);
+        }
+        
+        .contact-form-card .card-body {
+            padding: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-form-card .card-title {
+            font-weight: 700;
+            color: var(--neon-blue);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgba(10, 239, 255, 0.3);
+            position: relative;
+            font-size: 1.75rem;
+        }
+        
+        .contact-form-card .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+        }
+        
+        /* Floating label forms */
+        .form-floating {
+            position: relative;
+        }
+        
+        .form-floating > .form-control,
+        .form-floating > .form-select {
+            height: calc(3.5rem + 2px);
+            padding: 1rem 0.75rem;
+        }
+        
+        .form-floating > label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding: 1rem 0.75rem;
+            pointer-events: none;
+            border: 1px solid transparent;
+            transform-origin: 0 0;
+            transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+            color: rgba(230, 244, 241, 0.6);
+        }
+        
+        .form-floating > .form-control:focus,
+        .form-floating > .form-control:not(:placeholder-shown) {
+            padding-top: 1.625rem;
+            padding-bottom: 0.625rem;
+        }
+        
+        .form-floating > .form-control:focus ~ label,
+        .form-floating > .form-control:not(:placeholder-shown) ~ label {
+            opacity: .85;
+            transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+            color: var(--neon-blue);
+        }
+        
+        .form-floating > textarea.form-control {
+            min-height: 140px;
+        }
+        
+        /* Enhanced form controls */
+        .neon-input {
+            border-radius: 12px;
+            padding: 0.75rem 1.25rem;
+            border: 1px solid rgba(10, 239, 255, 0.25);
+            background-color: rgba(18, 26, 41, 0.9);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 5px rgba(10, 239, 255, 0.05);
+        }
+        
+        .neon-input:focus {
+            border-color: var(--neon-blue);
+            background-color: rgba(18, 26, 41, 0.95);
+            box-shadow: 0 0 0 2px rgba(10, 239, 255, 0.15), inset 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 15px rgba(10, 239, 255, 0.2);
+            outline: none;
+            color: white;
+        }
+        
+        .neon-input::placeholder {
+            color: rgba(230, 244, 241, 0.5);
+        }
+        
+        /* Button styling */
+        .contact-form-card .btn-submit {
+            width: 100%;
+            padding: 0.9rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 1rem;
+            background: var(--gradient-primary);
+            border: none;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(10, 239, 255, 0.3), 0 0 20px rgba(10, 239, 255, 0.1);
+            z-index: 1;
+            animation: buttonPulse 2s infinite;
+        }
+        
+        @keyframes buttonPulse {
+            0% {
+                box-shadow: 0 4px 15px rgba(10, 239, 255, 0.3), 0 0 20px rgba(10, 239, 255, 0.1);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(10, 239, 255, 0.4), 0 0 30px rgba(10, 239, 255, 0.2);
+            }
+            100% {
+                box-shadow: 0 4px 15px rgba(10, 239, 255, 0.3), 0 0 20px rgba(10, 239, 255, 0.1);
+            }
+        }
+        
+        .contact-form-card .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .contact-form-card .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(10, 239, 255, 0.3);
+        }
+        
+        .contact-form-card .btn-submit:hover::before {
+            opacity: 1;
+        }
+        
+        .contact-form-card .btn-submit:active {
+            transform: translateY(0);
+        }
+        
+        .contact-form-card .btn-submit .spinner {
+            display: none;
+            width: 1.2rem;
+            height: 1.2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spinner 0.8s linear infinite;
+            margin-right: 0.5rem;
+        }
+        
+        .contact-form-card .btn-submit.loading .spinner {
+            display: inline-block;
+        }
+        
+        @keyframes spinner {
+            to {transform: rotate(360deg);}
+        }
+        
+        /* Alert styling */
+        .contact-form-card .alert {
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(-10px);
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .contact-form-card .alert.show {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 100px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-form-card .alert-success {
+            background-color: rgba(0, 255, 178, 0.1);
+            border-left: 3px solid var(--neon-green);
+            color: var(--neon-green);
+        }
+        
+        .contact-form-card .alert-danger {
+            background-color: rgba(255, 105, 180, 0.1);
+            border-left: 3px solid #ff69b4;
+            color: #ff69b4;
+        }
+        
+        .alert-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            min-width: 26px;
+            border-radius: 50%;
+            margin-right: 0.75rem;
+        }
+        
+        .alert-success .alert-icon {
+            background-color: var(--neon-green);
+            color: var(--primary-dark);
+            box-shadow: 0 0 10px rgba(0, 255, 178, 0.4);
+        }
+        
+        .alert-danger .alert-icon {
+            background-color: #ff69b4;
+            color: var(--primary-dark);
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+        }
+        
+        /* Contact info styling */
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 12px;
+            background: linear-gradient(45deg, rgba(10, 239, 255, 0.1), rgba(164, 79, 235, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.25rem;
+            color: var(--neon-blue);
+            border: 1px solid rgba(10, 239, 255, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(10, 239, 255, 0.1);
+        }
+        
+        .contact-info-item:hover .contact-info-icon {
+            background: var(--gradient-primary);
+            color: white;
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 0 20px rgba(10, 239, 255, 0.3);
+        }
+        
+        .contact-info-content h5 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px rgba(10, 239, 255, 0.2);
+        }
+        
+        .contact-info-content p {
+            margin-bottom: 0;
+            color: rgba(230, 244, 241, 0.8);
+            line-height: 1.6;
+        }
+        
+        .contact-info-content a {
+            color: var(--neon-blue);
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .contact-info-content a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info-content a:hover {
+            color: var(--neon-purple);
+            text-shadow: 0 0 5px rgba(164, 79, 235, 0.5);
+        }
+        
+        .contact-info-content a:hover::after {
+            width: 100%;
+        }
+
+        .neon-title {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px rgba(10, 239, 255, 0.4), 0 0 20px rgba(10, 239, 255, 0.2);
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         /* Services section styling */
@@ -1435,6 +2130,32 @@
                 object-fit: cover;
                 height: 100%;
             }
+            
+            /* 为"我们的故事"部分在移动端添加一致的内边距 */
+            .about-content h4, 
+            .about-content p {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* 确保子标题样式在移动端和桌面端保持一致 */
+            .about-content h4 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+                background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-shadow: 0 0 10px rgba(10, 239, 255, 0.4);
+                display: block;
+            }
+            
+            .about-content h4::after {
+                left: 1rem;
+                width: 80px;
+                height: 3px;
+                background: var(--gradient-primary);
+                box-shadow: 0 0 10px rgba(10, 239, 255, 0.6);
+            }
         }
 
         .dropdown-toggle::after {
@@ -1452,20 +2173,83 @@
             background: rgba(10, 239, 255, 0.1);
             border-radius: 12px;
             margin-left: 0.5rem;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1.25rem;
             border: 1px solid rgba(10, 239, 255, 0.2);
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
         .language-selector .nav-link:hover {
             background: rgba(10, 239, 255, 0.2);
             border-color: rgba(10, 239, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(10, 239, 255, 0.2);
         }
         
-        .language-selector .dropdown-menu {
-            min-width: 120px;
+        .language-selector .nav-link:after {
+            display: none;
         }
-
+        
+        .language-selector .nav-link i {
+            font-size: 0.85rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .language-selector .nav-link:hover i {
+            transform: rotate(180deg);
+        }
+        
+        /* 修改移动端菜单样式 */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background-color: rgba(18, 26, 41, 0.97);
+                border-radius: 15px;
+                padding: 1rem;
+                margin-top: 1rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(10, 239, 255, 0.1);
+                border: 1px solid rgba(10, 239, 255, 0.15);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+            
+            .navbar-nav {
+                margin: 0.5rem 0;
+            }
+            
+            .nav-item {
+                margin: 0.35rem 0;
+            }
+            
+            .nav-link {
+                border-radius: 10px;
+                padding: 0.75rem 1.25rem;
+            }
+            
+            .nav-link:hover, .nav-link.active {
+                background-color: rgba(10, 239, 255, 0.1);
+            }
+            
+            .nav-link:after {
+                display: none;
+            }
+            
+            .dropdown-menu {
+                background-color: rgba(30, 42, 69, 0.6);
+                margin-top: 0.5rem;
+                border: 1px solid rgba(10, 239, 255, 0.1);
+            }
+            
+            .language-selector {
+                margin-top: 0.5rem;
+            }
+            
+            .language-selector .nav-link {
+                margin-left: 0;
+            }
+        }
+        
         /* Cookie consent bar */
         .cookie-consent {
             position: fixed;
@@ -1717,6 +2501,7 @@
                     <li class="nav-item dropdown language-selector">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="lang-zh">English</span><span class="lang-en">简体中文</span>
+                            <i class="fas fa-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="languageDropdown" id="languageMenu">
                             <li><a class="dropdown-item lang-zh-option" href="#" onclick="switchLanguage('zh')">简体中文</a></li>
@@ -1737,7 +2522,7 @@
             </h1>
             <p>
                 <span class="lang-zh">AI赋能未来，科技引领创新。</span>
-                <span class="lang-en">Empowering the Future with AI, Leading Innovation with Technology.</span>
+                <span class="lang-en">Advancing the Future through AI, Driving Innovation with Technology.</span>
             </p>
             <div class="hero-btn">
                 <a href="#contact" class="btn btn-primary btn-lg btn-hero">
@@ -1758,7 +2543,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6" data-aos="fade-right" data-aos-delay="100" data-aos-duration="800">
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop" class="img-fluid" alt="DoraTech team members collaborating on AI technology solutions">
+                        <img src="resources/team.jpg" class="img-fluid" alt="DoraTech team members collaborating on AI technology solutions">
                     </div>
                 </div>
                 <div class="col-md-6 about-content" data-aos="fade-left" data-aos-delay="200" data-aos-duration="800">
@@ -1767,12 +2552,12 @@
                         <span class="lang-en">Our Story</span>
                     </h4>
                     <p>
-                        <span class="lang-zh">成都多纳科技有限公司成立于2025年4月16日，我们专注于利用尖端技术，特别是人工智能，来解决现实世界的问题并创造有价值的解决方案。</span>
-                        <span class="lang-en">Founded on April 16, 2025, Chengdu Dora Technology Co., Ltd. focuses on leveraging cutting-edge technology, especially artificial intelligence, to solve real-world problems and create valuable solutions.</span>
+                        <span class="lang-zh">成都多纳科技有限公司成立于2025年，我们专注于利用尖端技术，特别是人工智能，来解决现实世界的问题并创造有价值的解决方案。</span>
+                        <span class="lang-en">Established in 2025, Chengdu Dora Technology Co., Ltd. specializes in implementing cutting-edge technology, especially artificial intelligence, to solve real-world problems and create valuable solutions.</span>
                     </p>
                     <p>
                         <span class="lang-zh">我们的团队由经验丰富的专业人士组成，对创新充满热情，致力于为客户提供高质量的软件产品和服务。</span>
-                        <span class="lang-en">Our team consists of experienced professionals passionate about innovation and dedicated to delivering high-quality software products and services to our clients.</span>
+                        <span class="lang-en">Our team comprises experienced professionals committed to innovation and dedicated to delivering high-quality software products and services to our clients.</span>
                     </p>
                 </div>
             </div>
@@ -1801,7 +2586,7 @@
                             </h4>
                             <p>
                                 <span class="lang-zh">我们提供定制化的软件开发服务，涵盖Web应用、移动应用以及企业级解决方案。我们的开发流程注重效率和质量，确保交付卓越的产品。</span>
-                                <span class="lang-en">We offer customized software development services, including web applications, mobile apps, and enterprise solutions. Our development process emphasizes efficiency and quality to ensure the delivery of exceptional products.</span>
+                                <span class="lang-en">We deliver custom software solutions across web, mobile, and enterprise platforms. Our development process emphasizes efficiency and quality to ensure the delivery of exceptional products.</span>
                             </p>
                         </div>
                     </div>
@@ -1821,7 +2606,7 @@
                             </h4>
                             <p>
                                 <span class="lang-zh">我们不仅开发软件，也提供成熟的软件产品销售。我们的产品旨在帮助企业提高效率、优化流程并实现业务增长。</span>
-                                <span class="lang-en">We not only develop software but also offer mature software products for sale. Our products are designed to help businesses improve efficiency, optimize processes, and achieve growth.</span>
+                                <span class="lang-en">We both develop custom solutions and offer mature software products. Our products are designed to help businesses improve efficiency, optimize processes, and achieve growth.</span>
                             </p>
                         </div>
                     </div>
@@ -1855,36 +2640,36 @@
                                     </p>
                                     <p data-aos="fade-left" data-aos-delay="400" data-aos-duration="800">
                                         <span class="lang-zh">Dora是我们的一款旗舰应用，在AI驱动的占星术和情感疗愈领域崭露头角。它结合了先进的人工智能和深刻的情感理解，为您提供个性化的陪伴、指导和支持。</span>
-                                        <span class="lang-en">Dora is one of our flagship apps, making waves in AI-powered astrology and emotional healing. It combines advanced AI with deep emotional understanding to provide personalized companionship, guidance, and support.</span>
+                                        <span class="lang-en">Dora, our flagship application, pioneers AI-driven astrology and emotional healing. It integrates advanced AI with emotional intelligence to deliver personalized guidance, companionship, and support.</span>
                                     </p>
                                     <ul class="feature-list" data-aos="fade-left" data-aos-delay="500" data-aos-duration="800">
                                         <li>
                                             <div class="feature-icon">✨</div>
-                                            <span>
+                                            <div>
                                                 <span class="lang-zh">AI驱动的占星见解</span>
                                                 <span class="lang-en">AI-driven astrology insights</span>
-                                            </span>
+                                            </div>
                                         </li>
                                         <li>
                                             <div class="feature-icon">💖</div>
-                                            <span>
+                                            <div>
                                                 <span class="lang-zh">个性化情感疗愈</span>
                                                 <span class="lang-en">Personalized emotional healing</span>
-                                            </span>
+                                            </div>
                                         </li>
                                         <li>
                                             <div class="feature-icon">💬</div>
-                                            <span>
+                                            <div>
                                                 <span class="lang-zh">全天候共情陪伴</span>
                                                 <span class="lang-en">24/7 empathetic companionship</span>
-                                            </span>
+                                            </div>
                                         </li>
                                         <li>
                                             <div class="feature-icon">🌟</div>
-                                            <span>
+                                            <div>
                                                 <span class="lang-zh">星盘、星座分析与指引</span>
                                                 <span class="lang-en">Natal chart & zodiac analysis</span>
-                                            </span>
+                                            </div>
                                         </li>
                                     </ul>
                                     <div class="text-center text-md-start product-cta" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
@@ -1913,7 +2698,7 @@
                 <div class="col-md-5" data-aos="fade-right" data-aos-delay="100">
                     <p class="lead mb-4 text-glow">
                         <span class="lang-zh">我们期待与您交流合作！</span>
-                        <span class="lang-en">We look forward to connecting with you!</span>
+                        <span class="lang-en">We welcome your inquiries.</span>
                     </p>
                     
                     <div class="contact-info-item">
@@ -1923,8 +2708,8 @@
                         <div class="contact-info-content">
                             <h5><span class="lang-zh">地址</span><span class="lang-en">Address</span></h5>
                             <p>
-                                <span class="lang-zh">中国（四川）自由贸易试验区成都高新区府城大道西段399号天府新谷7号楼C座6楼7号</span>
-                                <span class="lang-en">Room 7, 6th Floor, Building C, No. 7, Tianfu New Valley, No. 399 West Section of Fucheng Avenue, High-tech Zone, China (Sichuan) Pilot Free Trade Zone, Chengdu</span>
+                                <span class="lang-zh">四川省成都市高新区天府新谷7号楼C座</span>
+                                <span class="lang-en">Building C, No. 7, Tianfu New Valley, High-tech Zone, Chengdu, Sichuan, China</span>
                             </p>
                         </div>
                     </div>
@@ -2155,8 +2940,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <p>
-                        <span class="lang-zh">© 2025 成都多纳科技有限公司 版权所有</span>
-                        <span class="lang-en">© 2025 Chengdu Dora Technology Co., Ltd. All Rights Reserved</span>
+                        <span class="lang-zh">© <span id="currentYear"></span> 成都多纳科技有限公司 版权所有</span>
+                        <span class="lang-en">© <span id="currentYear2"></span> Chengdu Dora Technology Co., Ltd. All Rights Reserved</span>
                     </p>
                 </div>
                 <div class="col-md-6 text-md-end">
@@ -2175,18 +2960,64 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    
-    <!-- AOS Initialization -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <!-- 年份自动更新脚本 -->
     <script>
-        AOS.init({
-            duration: 800,
-            once: true
+        // 设置动态年份
+        document.addEventListener('DOMContentLoaded', function() {
+            // 更新页脚显示的年份
+            const yearElements = document.querySelectorAll('#currentYear, #currentYear2');
+            const currentYear = new Date().getFullYear();
+            yearElements.forEach(element => {
+                element.textContent = currentYear;
+            });
+            
+            // 更新结构化数据中的年份
+            const updateStructuredData = function() {
+                const jsonLdScripts = document.querySelectorAll('script[type="application/ld+json"]');
+                jsonLdScripts.forEach(script => {
+                    try {
+                        const data = JSON.parse(script.textContent);
+                        // 如果数据中包含版权信息，更新年份
+                        if (data.copyrightYear) {
+                            data.copyrightYear = currentYear.toString();
+                        }
+                        // 更新有年份的内容
+                        if (data.datePublished) {
+                            // 保留年份以外的部分
+                            const dateParts = data.datePublished.split('-');
+                            if (dateParts.length > 1) {
+                                dateParts[0] = currentYear.toString();
+                                data.datePublished = dateParts.join('-');
+                            }
+                        }
+                        script.textContent = JSON.stringify(data, null, 2);
+                    } catch (e) {
+                        console.error('Error updating structured data:', e);
+                    }
+                });
+            };
+            
+            updateStructuredData();
         });
     </script>
+
+    <!-- Bootstrap JS Bundle 本地引用 -->
+    <script src="resources/js/bootstrap.bundle.min.js"></script>
     
+    <!-- AOS JS 本地引用 -->
+    <script src="resources/js/aos.js"></script>
+    
+    <!-- AOS initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
+
     <!-- Language Switcher Script -->
     <script>
         // Check if language preference is stored in localStorage
@@ -2195,6 +3026,17 @@
         // Apply language on page load
         document.addEventListener('DOMContentLoaded', function() {
             switchLanguage(currentLang);
+            
+            // 为下拉菜单图标添加动画效果
+            const langDropdown = document.getElementById('languageDropdown');
+            if (langDropdown) {
+                langDropdown.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.style.transform = icon.style.transform === 'rotate(180deg)' ? 'rotate(0deg)' : 'rotate(180deg)';
+                    }
+                });
+            }
         });
         
         function switchLanguage(lang) {
@@ -2208,21 +3050,28 @@
             const zhOption = document.querySelector('.lang-zh-option');
             const enOption = document.querySelector('.lang-en-option');
             
+            // 更新下拉菜单选中状态
+            if (zhOption && enOption) {
+                // 移除所有active类
+                document.querySelectorAll('.dropdown-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // 为当前语言添加active类
+                if (lang === 'zh') {
+                    zhOption.classList.add('active');
+                } else {
+                    enOption.classList.add('active');
+                }
+            }
+            
             // Show/hide elements based on language
             if (lang === 'zh') {
                 document.querySelectorAll('.lang-zh').forEach(el => el.style.display = 'inline');
                 document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
-                
-                // 标记当前选中的语言选项
-                zhOption.classList.add('active');
-                enOption.classList.remove('active');
             } else {
                 document.querySelectorAll('.lang-zh').forEach(el => el.style.display = 'none');
                 document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'inline');
-                
-                // 标记当前选中的语言选项
-                zhOption.classList.remove('active');
-                enOption.classList.add('active');
             }
         }
     </script>
