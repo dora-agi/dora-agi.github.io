@@ -306,10 +306,10 @@
             color: var(--text-light);
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 0.5rem;
             font-weight: 500;
         }
-        
+
         .dropdown-item:hover {
             background-color: rgba(10, 239, 255, 0.1);
             color: var(--neon-blue);
@@ -354,13 +354,23 @@
             display: none;
         }
         
-        .language-selector .nav-link i {
-            font-size: 0.85rem;
-            transition: transform 0.3s ease;
+        .language-selector .nav-link i.fa-globe {
+            font-size: 1rem;
+            color: var(--neon-blue);
         }
-        
-        .language-selector .nav-link:hover i {
-            transform: rotate(180deg);
+
+        .language-selector .dropdown-menu {
+            min-width: 180px;
+        }
+
+        .language-selector .dropdown-item {
+            font-size: 0.95rem;
+            padding: 0.6rem 1rem;
+        }
+
+        .language-selector .dropdown-item i.fa-check {
+            color: var(--neon-blue);
+            font-size: 0.85rem;
         }
         
         /* 修改移动端菜单样式 */
@@ -2192,13 +2202,23 @@
             display: none;
         }
         
-        .language-selector .nav-link i {
-            font-size: 0.85rem;
-            transition: transform 0.3s ease;
+        .language-selector .nav-link i.fa-globe {
+            font-size: 1rem;
+            color: var(--neon-blue);
         }
-        
-        .language-selector .nav-link:hover i {
-            transform: rotate(180deg);
+
+        .language-selector .dropdown-menu {
+            min-width: 180px;
+        }
+
+        .language-selector .dropdown-item {
+            font-size: 0.95rem;
+            padding: 0.6rem 1rem;
+        }
+
+        .language-selector .dropdown-item i.fa-check {
+            color: var(--neon-blue);
+            font-size: 0.85rem;
         }
         
         /* 修改移动端菜单样式 */
@@ -2500,12 +2520,22 @@
                     </li>
                     <li class="nav-item dropdown language-selector">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="lang-zh">English</span><span class="lang-en">简体中文</span>
-                            <i class="fas fa-chevron-down"></i>
+                            <i class="fas fa-globe"></i>
+                            <span id="currentLanguageLabel"></span>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="languageDropdown" id="languageMenu">
-                            <li><a class="dropdown-item lang-zh-option" href="#" onclick="switchLanguage('zh')">简体中文</a></li>
-                            <li><a class="dropdown-item lang-en-option" href="#" onclick="switchLanguage('en')">English</a></li>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown" id="languageMenu">
+                            <li>
+                                <a class="dropdown-item lang-option" href="#" onclick="switchLanguage('zh')" data-lang="zh">
+                                    <i class="fas fa-check lang-check-zh" style="visibility: hidden; width: 1rem;"></i>
+                                    🇨🇳 简体中文
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item lang-option" href="#" onclick="switchLanguage('en')" data-lang="en">
+                                    <i class="fas fa-check lang-check-en" style="visibility: hidden; width: 1rem;"></i>
+                                    🇺🇸 English
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -2943,6 +2973,11 @@
                         <span class="lang-zh">© <span id="currentYear"></span> 成都多纳科技有限公司 版权所有</span>
                         <span class="lang-en">© <span id="currentYear2"></span> Chengdu Dora Technology Co., Ltd. All Rights Reserved</span>
                     </p>
+                    <p>
+                        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-none">
+                            蜀ICP备2025166662号
+                        </a>
+                    </p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <p>
@@ -3042,29 +3077,26 @@
         function switchLanguage(lang) {
             // Store language preference
             localStorage.setItem('language', lang);
-            
+
             // Set html lang attribute
             document.documentElement.lang = lang;
-            
-            // 获取语言选项元素
-            const zhOption = document.querySelector('.lang-zh-option');
-            const enOption = document.querySelector('.lang-en-option');
-            
-            // 更新下拉菜单选中状态
-            if (zhOption && enOption) {
-                // 移除所有active类
-                document.querySelectorAll('.dropdown-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                // 为当前语言添加active类
-                if (lang === 'zh') {
-                    zhOption.classList.add('active');
-                } else {
-                    enOption.classList.add('active');
-                }
+
+            // Update current language label in the dropdown button
+            const currentLanguageLabel = document.getElementById('currentLanguageLabel');
+            if (currentLanguageLabel) {
+                currentLanguageLabel.textContent = lang === 'zh' ? '简体中文' : 'English';
             }
-            
+
+            // Update checkmarks for selected language
+            document.querySelectorAll('.lang-check-zh, .lang-check-en').forEach(check => {
+                check.style.visibility = 'hidden';
+            });
+
+            const selectedCheck = document.querySelector(`.lang-check-${lang}`);
+            if (selectedCheck) {
+                selectedCheck.style.visibility = 'visible';
+            }
+
             // Show/hide elements based on language
             if (lang === 'zh') {
                 document.querySelectorAll('.lang-zh').forEach(el => el.style.display = 'inline');
