@@ -2273,16 +2273,21 @@
         /* Cookie consent bar */
         .cookie-consent {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
             background-color: rgba(18, 26, 41, 0.95);
-            padding: 1rem 0;
+            padding: 0.75rem 0;
             z-index: 9999;
             box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
-            transform: translateY(100%);
-            transition: transform 0.5s ease;
+            transform: translateY(calc(100% + 16px));
+            transition: transform 0.5s ease, bottom 0.3s ease;
             border-top: 1px solid rgba(10, 239, 255, 0.3);
+            border-radius: 12px;
+        }
+
+        .cookie-consent.at-bottom {
+            bottom: 120px;
         }
         
         .cookie-consent.show {
@@ -2292,7 +2297,8 @@
         .cookie-text {
             margin-bottom: 0;
             color: var(--text-light);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
         
         .cookie-buttons {
@@ -2303,10 +2309,10 @@
         }
         
         .btn-cookie {
-            border-radius: 12px;
-            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            padding: 0.4rem 1.2rem;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: all 0.3s ease;
         }
         
@@ -3233,7 +3239,7 @@
             const cookieConsent = document.getElementById('cookieConsent');
             const acceptCookiesBtn = document.getElementById('acceptCookies');
             const rejectCookiesBtn = document.getElementById('rejectCookies');
-            
+
             // Check if user has already made a cookie choice
             if (!localStorage.getItem('cookiesChoice')) {
                 // Show cookie consent bar after a short delay
@@ -3241,25 +3247,47 @@
                     cookieConsent.classList.add('show');
                 }, 1000);
             }
-            
+
+            // Handle scroll to adjust cookie bar position
+            function checkScrollPosition() {
+                if (!cookieConsent.classList.contains('show')) return;
+
+                const scrollHeight = document.documentElement.scrollHeight;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const clientHeight = window.innerHeight;
+
+                // Check if user is near bottom (within 150px of footer)
+                if (scrollHeight - scrollTop - clientHeight < 150) {
+                    cookieConsent.classList.add('at-bottom');
+                } else {
+                    cookieConsent.classList.remove('at-bottom');
+                }
+            }
+
+            // Listen to scroll events
+            window.addEventListener('scroll', checkScrollPosition);
+
+            // Initial check
+            checkScrollPosition();
+
             // Handle cookie acceptance
             acceptCookiesBtn.addEventListener('click', function() {
                 localStorage.setItem('cookiesChoice', 'accepted');
                 localStorage.setItem('cookiesAccepted', 'true');
                 cookieConsent.classList.remove('show');
-                
+
                 // Initialize Google Analytics after cookie acceptance
                 if (typeof initializeGoogleAnalytics === 'function') {
                     initializeGoogleAnalytics();
                 }
             });
-            
+
             // Handle cookie rejection
             rejectCookiesBtn.addEventListener('click', function() {
                 localStorage.setItem('cookiesChoice', 'rejected');
                 localStorage.removeItem('cookiesAccepted');
                 cookieConsent.classList.remove('show');
-                
+
                 // No analytics will be loaded when cookies are rejected
             });
         });
