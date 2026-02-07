@@ -4,33 +4,27 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://doratech.site/</loc>
-        <lastmod>2023-05-25</lastmod>
+        <loc>https://doratech.cn/</loc>
+        <lastmod>2026-02-08</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://doratech.site/index.html</loc>
-        <lastmod>2023-05-25</lastmod>
+        <loc>https://doratech.cn/apps/dora.html</loc>
+        <lastmod>2026-02-08</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://doratech.cn/privacy.html</loc>
-        <lastmod>2025-02-05</lastmod>
+        <lastmod>2026-02-08</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://doratech.cn/terms.html</loc>
-        <lastmod>2025-02-05</lastmod>
+        <lastmod>2026-02-08</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
-    <url>
-        <loc>https://doratech.site/apps/dora.html</loc>
-        <lastmod>2026-02-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-</urlset> 
+</urlset>

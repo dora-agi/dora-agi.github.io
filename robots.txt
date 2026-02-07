@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /version.json
 
-# Sitemap location
-Sitemap: https://doratech.site/sitemap.xml 
+# Sitemap
+Sitemap: https://doratech.cn/sitemap.xml

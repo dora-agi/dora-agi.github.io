@@ -1,0 +1,66 @@
+# DoraTech
+
+> DoraTech (成都多纳科技有限公司 / Chengdu Dora Technology Co., Ltd.) is an AI technology company based in Chengdu, China. We build AI-powered applications that combine artificial intelligence with human-centered design, focusing on emotional wellness and personal growth.
+
+## Company Overview
+
+DoraTech was founded in 2025 in Chengdu, Sichuan, China. Our mission is to create AI-powered experiences that are human at heart — technology that understands, supports, and grows with its users.
+
+We believe AI should be warm, personal, and meaningful. Our products blend cutting-edge AI capabilities with thoughtful design to help people better understand themselves and navigate life's complexities.
+
+### Contact Information
+
+- **Email**: info@doratech.cn
+- **Address**: 中国（四川）自由贸易试验区成都高新区府城大道西段399号天府新谷7号楼C座6楼7号
+- **English Address**: Floor 6, Building 7C, Tianfu New Valley, No. 399 Fucheng Avenue West, Chengdu Hi-tech Zone, Sichuan, China 610041
+- **Postal Code**: 610041
+
+## Products
+
+### Dora — AI Astrologer & Emotional Healing Companion
+
+Dora is our flagship mobile application, available on iOS and Android. It serves as an AI-powered astrologer and emotional healing companion.
+
+**Core Features:**
+
+- **AI Astrology Insights**: Professional natal chart analysis powered by AI. Provides detailed interpretations of planetary positions, houses, and aspects based on your exact birth time and location.
+- **Emotional Healing**: A compassionate AI companion that offers emotional support, guided conversations, and personalized coping strategies. Available 24/7 for when you need someone to talk to.
+- **24/7 AI Companion**: Always-available AI chat that remembers your context, understands your personality, and provides consistent, personalized guidance.
+- **Natal Chart Analysis**: Comprehensive birth chart calculations with detailed breakdowns of sun sign, moon sign, rising sign, planetary positions, and aspect patterns.
+
+**Pricing**: Free to download with optional in-app subscription for premium features.
+
+**Product Page**: https://doratech.cn/apps/dora.html
+
+## Legal
+
+### Privacy Policy
+
+Full bilingual (Chinese/English) privacy policy available at: https://doratech.cn/privacy.html
+
+Key points:
+- Data is stored within the People's Republic of China
+- We collect account info (phone/Apple ID), birth data, profile info, and chat content
+- Third-party SDKs: Apple StoreKit (payments), PostHog (analytics)
+- Users can delete their account at any time (Settings → Account & Security → Delete Account)
+- We do not sell personal information
+- We comply with China's Personal Information Protection Law (PIPL)
+- Minimum age: 16 years old
+
+### Terms of Service
+
+Full bilingual (Chinese/English) terms of service available at: https://doratech.cn/terms.html
+
+Key points:
+- The app provides AI-generated content for entertainment and reference only
+- Astrology and fortune-telling features are not professional advice
+- Users retain ownership of their content
+- Service governed by PRC law
+
+## Technical Information
+
+- **Website**: https://doratech.cn (primary domain, ICP-registered)
+- **Alternative domain**: https://doratech.site
+- **ICP Filing**: 蜀ICP备2025166662号
+- **App platforms**: iOS (App Store), Android (planned)
+- **AI Technology**: Proprietary AI agents built with modern LLM frameworks

@@ -1,0 +1,26 @@
+# DoraTech
+
+> DoraTech (成都多纳科技有限公司) is an AI technology company based in Chengdu, China. We build AI-powered applications that combine artificial intelligence with human-centered design. Our flagship product is Dora, an AI astrologer and emotional healing companion.
+
+## Products
+
+- [Dora](https://doratech.cn/apps/dora.html): AI-powered astrologer and emotional healing companion app. Features natal chart analysis, daily horoscopes, personality insights, and 24/7 AI chat support. Available on iOS and Android.
+
+## Company
+
+- [About DoraTech](https://doratech.cn/): Official website — company overview, mission, and product showcase.
+- [Privacy Policy](https://doratech.cn/privacy.html): How we collect, use, and protect user data. Bilingual (Chinese/English).
+- [Terms of Service](https://doratech.cn/terms.html): User agreement and service terms. Bilingual (Chinese/English).
+
+## Contact
+
+- Email: info@doratech.cn
+- Address: Floor 6, Building 7C, Tianfu New Valley, No. 399 Fucheng Avenue West, Chengdu Hi-tech Zone, Sichuan, China 610041
+
+## Optional
+
+- Company name (CN): 成都多纳科技有限公司
+- Company name (EN): Chengdu Dora Technology Co., Ltd.
+- Founded: 2025
+- Location: Chengdu, Sichuan, China
+- ICP Filing: 蜀ICP备2025166662号
