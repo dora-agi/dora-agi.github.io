@@ -15,5 +15,22 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    <!-- 当您添加更多页面时，可以在此处添加更多URL -->
+    <url>
+        <loc>https://doratech.cn/privacy.html</loc>
+        <lastmod>2025-02-05</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://doratech.cn/terms.html</loc>
+        <lastmod>2025-02-05</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://doratech.site/apps/dora.html</loc>
+        <lastmod>2026-02-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset> 

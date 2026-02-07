@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) placeholder - will be loaded after cookie consent -->
+    <script>
+      function initializeGoogleAnalytics() {
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-HJM6RY52BQ';
+        document.head.appendChild(gaScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HJM6RY52BQ');
+      }
+
+      if (localStorage.getItem('cookiesAccepted') === 'true') {
+        initializeGoogleAnalytics();
+      }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dora — AI Astrologer & Emotional Healing Companion | DoraTech</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Dora is your AI-powered astrologer and emotional healing companion. Get personalized natal chart analysis, daily horoscopes, and 24/7 emotional support.">
+    <meta name="keywords" content="Dora, AI astrology, natal chart, horoscope, emotional healing, AI companion, DoraTech, 占星, 情感疗愈, AI伴侣">
+    <meta name="author" content="DoraTech">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://doratech.site/apps/dora.html">
+    <meta property="og:title" content="Dora — AI Astrologer & Emotional Healing Companion">
+    <meta property="og:description" content="Your AI-powered astrologer and emotional healing companion. Personalized insights, daily guidance, and 24/7 support.">
+    <meta property="og:image" content="../resources/dora.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dora — AI Astrologer & Emotional Healing Companion">
+    <meta name="twitter:description" content="Your AI-powered astrologer and emotional healing companion. Personalized insights, daily guidance, and 24/7 support.">
+    <meta name="twitter:image" content="../resources/dora.jpg">
+
+    <!-- Mobile App Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#FEFAF6">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://doratech.site/apps/dora.html">
+
+    <!-- Local Fonts (self-hosted for China compatibility) -->
+    <link rel="stylesheet" href="../resources/fonts/fonts.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="../resources/css/aos.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../resources/css/fontawesome.min.css">
+
+    <!-- Structured Data for SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Dora",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS, Android",
+      "description": "Your AI Astrologer & Emotional Healing Companion. Get personalized natal chart analysis, daily horoscopes, and 24/7 emotional support.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free to download with in-app purchases available"
+      }
+    }
+    </script>
+
+    <style>
+        /* ===== Design Tokens ===== */
+        :root {
+            --bg-cream: #FEFAF6;
+            --bg-warm: #FFF8F0;
+            --bg-section: #FDF5EE;
+            --bg-card: #FFFFFF;
+            --text-primary: #2D2A32;
+            --text-secondary: #6B6672;
+            --text-muted: #9B95A3;
+            --accent-lavender: #8B7EC8;
+            --accent-lavender-hover: #7A6DB7;
+            --accent-lavender-light: #F3F0FF;
+            --accent-lavender-glow: rgba(139, 126, 200, 0.15);
+            --accent-coral: #FF6B4A;
+            --accent-coral-light: #FFF0ED;
+            --accent-sage: #7BB88A;
+            --accent-sage-light: #EDF7EF;
+            --accent-sky: #5AAFDE;
+            --accent-sky-light: #EBF5FC;
+            --accent-amber: #F5A623;
+            --accent-amber-light: #FFF6E5;
+            --gradient-lavender: linear-gradient(135deg, #8B7EC8, #B8A9E8);
+            --gradient-soft: linear-gradient(135deg, #F3F0FF, #EBF5FC);
+            --gradient-hero: linear-gradient(135deg, #F3F0FF 0%, #FFF0ED 50%, #EBF5FC 100%);
+            --shadow-soft: 0 4px 24px rgba(45, 42, 50, 0.06);
+            --shadow-md: 0 8px 32px rgba(45, 42, 50, 0.08);
+            --shadow-hover: 0 12px 40px rgba(45, 42, 50, 0.12);
+            --shadow-card: 0 2px 16px rgba(45, 42, 50, 0.06);
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+        }
+
+        /* ===== Base ===== */
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            scroll-behavior: smooth;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-cream);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .lang-zh { display: none; }
+        .lang-en { display: inline; }
+
+        /* ===== Navigation ===== */
+        .navbar {
+            padding: 1rem 0;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background-color: rgba(254, 250, 246, 0.85) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+        }
+
+        .navbar.scrolled {
+            padding: 0.7rem 0;
+            background-color: rgba(254, 250, 246, 0.95) !important;
+            box-shadow: 0 1px 24px rgba(45, 42, 50, 0.06);
+            border-bottom: 1px solid rgba(45, 42, 50, 0.06);
+        }
+
+        .navbar-brand {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-primary) !important;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand img.dora-logo {
+            height: 38px;
+            width: auto;
+            max-width: 120px;
+            object-fit: contain;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-brand img.dora-logo {
+            height: 34px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-lavender) !important;
+        }
+
+        .nav-link .fa-arrow-left {
+            margin-right: 0.3rem;
+            font-size: 0.85rem;
+        }
+
+        .navbar-toggler {
+            border: 1px solid rgba(45, 42, 50, 0.15);
+            padding: 0.4rem 0.6rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(139, 126, 200, 0.15);
+            outline: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2845,42,50,0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+
+        /* Language Dropdown */
+        .lang-toggle {
+            background: var(--accent-lavender-light);
+            border: 1px solid rgba(139, 126, 200, 0.15);
+            border-radius: var(--radius-sm);
+            padding: 0.4rem 0.8rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle:hover { background: rgba(139, 126, 200, 0.12); }
+
+        .dropdown-menu {
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(45, 42, 50, 0.08);
+            box-shadow: var(--shadow-md);
+            padding: 0.5rem;
+            min-width: 140px;
+            background: var(--bg-card);
+        }
+
+        .dropdown-item {
+            border-radius: 8px;
+            padding: 0.45rem 0.8rem;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover { background: var(--accent-lavender-light); }
+        .dropdown-item:active { background: var(--accent-lavender-light); color: var(--text-primary); }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            padding: 140px 0 80px;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(139, 126, 200, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 107, 74, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-lavender-light);
+            color: var(--accent-lavender);
+            padding: 0.45rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(139, 126, 200, 0.15);
+        }
+
+        .hero-badge i { font-size: 0.8rem; }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .text-gradient {
+            background: var(--gradient-lavender);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary-lavender {
+            background: var(--accent-lavender);
+            color: #fff;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary-lavender:hover {
+            background: var(--accent-lavender-hover);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--accent-lavender-glow);
+        }
+
+        .btn-outline-lavender {
+            background: transparent;
+            color: var(--accent-lavender);
+            border: 2px solid var(--accent-lavender);
+            padding: 0.7rem 1.8rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-outline-lavender:hover {
+            background: var(--accent-lavender-light);
+            color: var(--accent-lavender);
+            transform: translateY(-2px);
+        }
+
+        /* Phone Mockup */
+        .phone-mockup {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-frame {
+            width: 280px;
+            height: 560px;
+            background: var(--bg-card);
+            border-radius: 36px;
+            box-shadow: var(--shadow-hover), 0 0 60px var(--accent-lavender-glow);
+            border: 3px solid rgba(139, 126, 200, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .phone-frame .phone-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, var(--accent-lavender-light) 0%, var(--bg-card) 100%);
+            gap: 1rem;
+        }
+
+        .phone-placeholder i {
+            font-size: 3rem;
+            color: var(--accent-lavender);
+            opacity: 0.5;
+        }
+
+        .phone-placeholder span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Floating decorative dots around phone */
+        .phone-mockup .deco-dot {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .deco-dot-1 {
+            width: 12px; height: 12px;
+            background: var(--accent-lavender);
+            top: 10%; left: 5%;
+            animation: float-slow 6s ease-in-out infinite;
+        }
+
+        .deco-dot-2 {
+            width: 8px; height: 8px;
+            background: var(--accent-coral);
+            top: 25%; right: 8%;
+            animation: float-slow 5s ease-in-out infinite 1s;
+        }
+
+        .deco-dot-3 {
+            width: 10px; height: 10px;
+            background: var(--accent-sage);
+            bottom: 20%; left: 8%;
+            animation: float-slow 7s ease-in-out infinite 0.5s;
+        }
+
+        .deco-dot-4 {
+            width: 6px; height: 6px;
+            background: var(--accent-sky);
+            bottom: 35%; right: 5%;
+            animation: float-slow 4s ease-in-out infinite 2s;
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* ===== Section Shared ===== */
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-lavender);
+            margin-bottom: 0.8rem;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background: var(--accent-lavender);
+            border-radius: 2px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* ===== Features Section ===== */
+        .features {
+            padding: 100px 0;
+            background: var(--bg-cream);
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid rgba(45, 42, 50, 0.06);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 3px 3px 0 0;
+            transition: height 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: transparent;
+        }
+
+        .feature-card:hover::before {
+            height: 4px;
+        }
+
+        .feature-card.card-lavender::before { background: var(--accent-lavender); }
+        .feature-card.card-coral::before { background: var(--accent-coral); }
+        .feature-card.card-sage::before { background: var(--accent-sage); }
+        .feature-card.card-sky::before { background: var(--accent-sky); }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .icon-lavender { background: var(--accent-lavender-light); color: var(--accent-lavender); }
+        .icon-coral { background: var(--accent-coral-light); color: var(--accent-coral); }
+        .icon-sage { background: var(--accent-sage-light); color: var(--accent-sage); }
+        .icon-sky { background: var(--accent-sky-light); color: var(--accent-sky); }
+
+        .feature-card h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* ===== Screenshots Section ===== */
+        .screenshots {
+            padding: 100px 0;
+            background: var(--bg-section);
+        }
+
+        .screenshot-scroll {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding: 1rem 0 2rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .screenshot-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .screenshot-scroll::-webkit-scrollbar-track {
+            background: rgba(45, 42, 50, 0.04);
+            border-radius: 3px;
+        }
+
+        .screenshot-scroll::-webkit-scrollbar-thumb {
+            background: rgba(139, 126, 200, 0.3);
+            border-radius: 3px;
+        }
+
+        .screenshot-item {
+            flex: 0 0 auto;
+            width: 220px;
+            height: 420px;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+            scroll-snap-align: start;
+            border: 1px solid rgba(45, 42, 50, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .screenshot-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, var(--accent-lavender-light) 0%, var(--bg-card) 100%);
+            gap: 0.8rem;
+        }
+
+        .screenshot-placeholder i {
+            font-size: 2rem;
+            color: var(--accent-lavender);
+            opacity: 0.4;
+        }
+
+        .screenshot-placeholder span {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* ===== CTA Section ===== */
+        .cta {
+            padding: 100px 0;
+            background: var(--bg-cream);
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, var(--accent-lavender) 0%, #6B5CA5 100%);
+            border-radius: var(--radius-xl);
+            padding: 4rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cta-card::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cta-card h2 {
+            color: #fff;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-card p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-cta-white {
+            background: #fff;
+            color: var(--accent-lavender);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-cta-white:hover {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--accent-lavender);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-cta-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 0.75rem 1.8rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-cta-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.8);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: #2D2A32;
+            color: rgba(255, 255, 255, 0.65);
+            padding: 3rem 0 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover { color: rgba(255, 255, 255, 0.9); }
+
+        .footer-brand {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 0.4rem;
+        }
+
+        .footer-links a { margin-right: 0.5rem; }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            margin: 1.5rem 0;
+        }
+
+        /* ===== Cookie Consent ===== */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-card);
+            padding: 1rem 0;
+            box-shadow: 0 -4px 24px rgba(45, 42, 50, 0.1);
+            z-index: 9999;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-top: 1px solid rgba(45, 42, 50, 0.06);
+        }
+
+        .cookie-consent.show { transform: translateY(0); }
+
+        .cookie-consent.at-bottom { bottom: 0; }
+
+        .cookie-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-end;
+        }
+
+        .btn-cookie {
+            padding: 0.45rem 1.2rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cookie-accept {
+            background: var(--accent-lavender);
+            color: #fff;
+        }
+
+        .btn-cookie-accept:hover {
+            background: var(--accent-lavender-hover);
+            color: #fff;
+        }
+
+        .btn-cookie-reject {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid rgba(45, 42, 50, 0.15);
+        }
+
+        .btn-cookie-reject:hover {
+            background: rgba(45, 42, 50, 0.04);
+            color: var(--text-primary);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: var(--bg-card);
+                border-radius: var(--radius-md);
+                padding: 1rem;
+                margin-top: 0.5rem;
+                box-shadow: var(--shadow-md);
+                border: 1px solid rgba(45, 42, 50, 0.06);
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero { padding: 120px 0 60px; }
+            .hero h1 { font-size: 2rem; }
+            .hero .tagline { font-size: 1rem; }
+            .phone-frame { width: 220px; height: 440px; }
+            .hero-actions { justify-content: center; }
+            .hero .text-content { text-align: center; }
+            .hero .tagline { margin-left: auto; margin-right: auto; }
+            .hero-badge { margin-left: auto; margin-right: auto; }
+            .features { padding: 60px 0; }
+            .screenshots { padding: 60px 0; }
+            .cta { padding: 60px 0; }
+            .cta-card { padding: 3rem 1.5rem; }
+            .section-subtitle { font-size: 0.95rem; }
+            .cookie-buttons { justify-content: center; margin-top: 0.5rem; }
+        }
+
+        @media (max-width: 575.98px) {
+            .phone-frame { width: 200px; height: 400px; border-radius: 28px; }
+            .screenshot-item { width: 180px; height: 360px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../resources/dora_logo.jpg" alt="DoraTech Logo" class="dora-logo">
+                DoraTech
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="fas fa-arrow-left"></i>
+                            <span class="lang-en">Back to Home</span>
+                            <span class="lang-zh">返回首页</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown ms-2">
+                        <a class="nav-link lang-toggle dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe" style="margin-right: 4px;"></i>
+                            <span id="currentLanguageLabel">English</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" id="languageMenu" aria-labelledby="languageDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="switchLanguage('en'); return false;">
+                                    <span class="lang-check-en" style="margin-right:6px;">&#10003;</span> English
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="switchLanguage('zh'); return false;">
+                                    <span class="lang-check-zh" style="margin-right:6px; visibility:hidden;">&#10003;</span> 简体中文
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-content" data-aos="fade-right">
+                    <div class="hero-badge">
+                        <i class="fas fa-sparkles"></i>
+                        <span class="lang-en">AI-Powered Companion</span>
+                        <span class="lang-zh">AI 智能伴侣</span>
+                    </div>
+                    <h1>
+                        <span class="lang-en">Meet <span class="text-gradient">Dora</span></span>
+                        <span class="lang-zh">遇见 <span class="text-gradient">Dora</span></span>
+                    </h1>
+                    <h1 style="font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 700; margin-bottom: 1rem;">
+                        <span class="lang-en">Your AI Astrologer &<br>Emotional Healing Companion</span>
+                        <span class="lang-zh">你的 AI 占星师 &<br>情感疗愈伴侣</span>
+                    </h1>
+                    <p class="tagline">
+                        <span class="lang-en">Dora combines the ancient wisdom of astrology with modern AI to offer personalized insights, daily guidance, and a warm companion who's always there for you.</span>
+                        <span class="lang-zh">Dora 融合了古老的占星智慧与现代 AI 技术，为你提供个性化洞见、每日指引，以及一位始终陪伴你的温暖伙伴。</span>
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#" class="btn btn-primary-lavender" onclick="return false;">
+                            <i class="fab fa-apple"></i>
+                            <span class="lang-en">App Store</span>
+                            <span class="lang-zh">App Store</span>
+                        </a>
+                        <a href="#" class="btn btn-outline-lavender" onclick="return false;">
+                            <i class="fab fa-google-play"></i>
+                            <span class="lang-en">Google Play</span>
+                            <span class="lang-zh">Google Play</span>
+                        </a>
+                    </div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted);">
+                        <span class="lang-en">Coming soon to iOS and Android</span>
+                        <span class="lang-zh">即将登陆 iOS 和 Android</span>
+                    </p>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
+                    <div class="phone-mockup">
+                        <div class="deco-dot deco-dot-1"></div>
+                        <div class="deco-dot deco-dot-2"></div>
+                        <div class="deco-dot deco-dot-3"></div>
+                        <div class="deco-dot deco-dot-4"></div>
+                        <div class="phone-frame">
+                            <img src="../resources/dora-chat.png" alt="Dora App Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="phone-placeholder" style="display: none;">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span class="lang-en">App Preview</span>
+                                <span class="lang-zh">应用预览</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="section-label">
+                    <span class="lang-en">Features</span>
+                    <span class="lang-zh">核心功能</span>
+                </div>
+                <h2 class="section-title">
+                    <span class="lang-en">What Makes Dora Special</span>
+                    <span class="lang-zh">Dora 的独特之处</span>
+                </h2>
+                <p class="section-subtitle mx-auto">
+                    <span class="lang-en">Dora isn't just another horoscope app. It's a thoughtful AI companion built to understand you on a deeper level.</span>
+                    <span class="lang-zh">Dora 不只是一个星座应用，而是一个用心打造的 AI 伴侣，旨在更深层地理解你。</span>
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Feature 1: AI Astrology Insights -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-card card-lavender">
+                        <div class="feature-icon icon-lavender">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-en">AI Astrology Insights</span>
+                            <span class="lang-zh">AI 占星洞见</span>
+                        </h4>
+                        <p>
+                            <span class="lang-en">Receive personalized astrological interpretations powered by advanced AI that goes beyond generic horoscopes.</span>
+                            <span class="lang-zh">获取由先进 AI 驱动的个性化占星解读，远超传统星座运势。</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Emotional Healing -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card card-coral">
+                        <div class="feature-icon icon-coral">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-en">Emotional Healing</span>
+                            <span class="lang-zh">情感疗愈</span>
+                        </h4>
+                        <p>
+                            <span class="lang-en">A safe space for emotional support with empathetic responses that help you navigate life's challenges.</span>
+                            <span class="lang-zh">一个安全的情感支持空间，用共情回应帮助你应对生活中的挑战。</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 3: 24/7 Companion -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card card-sage">
+                        <div class="feature-icon icon-sage">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-en">24/7 Companion</span>
+                            <span class="lang-zh">全天候陪伴</span>
+                        </h4>
+                        <p>
+                            <span class="lang-en">Always available for a chat, whether you need guidance, comfort, or just someone to talk to at any hour.</span>
+                            <span class="lang-zh">随时在线聊天，无论你需要指引、安慰，还是深夜倾诉。</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 4: Natal Chart Analysis -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card card-sky">
+                        <div class="feature-icon icon-sky">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h4>
+                            <span class="lang-en">Natal Chart Analysis</span>
+                            <span class="lang-zh">本命盘解析</span>
+                        </h4>
+                        <p>
+                            <span class="lang-en">Deep dive into your birth chart with AI-powered analysis of planets, houses, and aspects for self-discovery.</span>
+                            <span class="lang-zh">通过 AI 驱动的行星、宫位和相位分析，深入探索你的本命盘。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <div class="section-label">
+                    <span class="lang-en">Preview</span>
+                    <span class="lang-zh">应用预览</span>
+                </div>
+                <h2 class="section-title">
+                    <span class="lang-en">A Glimpse Inside Dora</span>
+                    <span class="lang-zh">一窥 Dora 的世界</span>
+                </h2>
+            </div>
+            <div class="screenshot-scroll" data-aos="fade-up" data-aos-delay="100">
+                <div class="screenshot-item">
+                    <img src="../resources/dora-chat.png" alt="Dora AI Chat">
+                </div>
+                <div class="screenshot-item">
+                    <img src="../resources/dora-soulmate.png" alt="Dora Soulmate">
+                </div>
+                <div class="screenshot-item">
+                    <img src="../resources/dora-login.png" alt="Dora Login">
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-chart-pie"></i>
+                        <span class="lang-en">Natal Chart</span>
+                        <span class="lang-zh">本命盘</span>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-sun"></i>
+                        <span class="lang-en">Daily Horoscope</span>
+                        <span class="lang-zh">每日运势</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download CTA Section -->
+    <section class="cta" id="download">
+        <div class="container" data-aos="fade-up">
+            <div class="cta-card">
+                <h2>
+                    <span class="lang-en">Ready to Meet Dora?</span>
+                    <span class="lang-zh">准备好遇见 Dora 了吗？</span>
+                </h2>
+                <p>
+                    <span class="lang-en">Download now and start your journey of self-discovery with an AI companion who truly understands you.</span>
+                    <span class="lang-zh">立即下载，和一位真正理解你的 AI 伴侣一起开启自我发现之旅。</span>
+                </p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn-cta-white" onclick="return false;">
+                        <i class="fab fa-apple"></i>
+                        <span class="lang-en">Download for iOS</span>
+                        <span class="lang-zh">iOS 下载</span>
+                    </a>
+                    <a href="#" class="btn-cta-outline" onclick="return false;">
+                        <i class="fab fa-google-play"></i>
+                        <span class="lang-en">Download for Android</span>
+                        <span class="lang-zh">Android 下载</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col-md-6">
+                    <div class="footer-brand">DoraTech</div>
+                    <p>
+                        <span class="lang-en">AI-powered experiences, human at heart.</span>
+                        <span class="lang-zh">用AI创造有温度的体验。</span>
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="footer-links">
+                        <a href="../privacy.html">
+                            <span class="lang-en">Privacy Policy</span>
+                            <span class="lang-zh">隐私政策</span>
+                        </a> &nbsp;|&nbsp;
+                        <a href="../terms.html">
+                            <span class="lang-en">Terms & Conditions</span>
+                            <span class="lang-zh">条款与条件</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        <span class="lang-en">&copy; <span id="currentYear2"></span> Chengdu Dora Technology Co., Ltd.</span>
+                        <span class="lang-zh">&copy; <span id="currentYear"></span> 成都多纳科技有限公司</span>
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>
+                        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">蜀ICP备2025166662号</a>
+                    </p>
+                    <p>
+                        <a href="https://beian.mps.gov.cn/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 4px;">
+                            <img src="https://beian.mps.gov.cn/web/assets/logo01.6189a29f.png" alt="公安备案" style="height: 14px;">
+                            <span>川公网安备51019002008310号</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Year Auto-Update -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var y = new Date().getFullYear();
+            ['currentYear', 'currentYear2'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.textContent = y;
+            });
+        });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="../resources/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="../resources/js/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({ duration: 700, once: true, offset: 80 });
+        });
+    </script>
+
+    <!-- Language Switcher -->
+    <script>
+        var currentLang = localStorage.getItem('language') || 'en';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            switchLanguage(currentLang);
+        });
+
+        function switchLanguage(lang) {
+            localStorage.setItem('language', lang);
+            document.documentElement.lang = lang;
+
+            var label = document.getElementById('currentLanguageLabel');
+            if (label) label.textContent = lang === 'zh' ? '简体中文' : 'English';
+
+            document.querySelectorAll('.lang-check-zh, .lang-check-en').forEach(function(c) {
+                c.style.visibility = 'hidden';
+            });
+            var sel = document.querySelector('.lang-check-' + lang);
+            if (sel) sel.style.visibility = 'visible';
+
+            if (lang === 'zh') {
+                document.querySelectorAll('.lang-zh').forEach(function(el) { el.style.display = 'inline'; });
+                document.querySelectorAll('.lang-en').forEach(function(el) { el.style.display = 'none'; });
+            } else {
+                document.querySelectorAll('.lang-zh').forEach(function(el) { el.style.display = 'none'; });
+                document.querySelectorAll('.lang-en').forEach(function(el) { el.style.display = 'inline'; });
+            }
+        }
+    </script>
+
+    <!-- Navigation Scroll -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var navbar = document.getElementById('mainNav');
+            var ticking = false;
+
+            function updateNavbar() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateNavbar);
+                    ticking = true;
+                }
+            });
+            updateNavbar();
+
+            // Mobile menu close on click
+            var collapse = document.querySelector('.navbar-collapse');
+            var toggler = document.querySelector('.navbar-toggler');
+            document.querySelectorAll('.navbar-nav .nav-link:not(#languageDropdown)').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth < 992) {
+                        collapse.classList.remove('show');
+                        toggler.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            document.querySelectorAll('#languageMenu .dropdown-item').forEach(function(opt) {
+                opt.addEventListener('click', function() {
+                    if (window.innerWidth < 992) {
+                        collapse.classList.remove('show');
+                        toggler.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p class="cookie-text">
+                        <span class="lang-en">We use cookies to improve your experience. By using our site, you consent to cookies.</span>
+                        <span class="lang-zh">我们使用Cookie来提升您的浏览体验。继续使用即表示您同意我们使用Cookie。</span>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <div class="cookie-buttons">
+                        <button class="btn btn-cookie btn-cookie-reject" id="rejectCookies">
+                            <span class="lang-en">Reject</span>
+                            <span class="lang-zh">拒绝</span>
+                        </button>
+                        <button class="btn btn-cookie btn-cookie-accept" id="acceptCookies">
+                            <span class="lang-en">Accept</span>
+                            <span class="lang-zh">接受</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var cc = document.getElementById('cookieConsent');
+            if (!localStorage.getItem('cookiesChoice')) {
+                setTimeout(function() { cc.classList.add('show'); }, 1000);
+            }
+            function checkPos() {
+                if (!cc.classList.contains('show')) return;
+                var diff = document.documentElement.scrollHeight - window.pageYOffset - window.innerHeight;
+                if (diff < 150) cc.classList.add('at-bottom');
+                else cc.classList.remove('at-bottom');
+            }
+            window.addEventListener('scroll', checkPos);
+            checkPos();
+            document.getElementById('acceptCookies').addEventListener('click', function() {
+                localStorage.setItem('cookiesChoice', 'accepted');
+                localStorage.setItem('cookiesAccepted', 'true');
+                cc.classList.remove('show');
+                if (typeof initializeGoogleAnalytics === 'function') initializeGoogleAnalytics();
+            });
+            document.getElementById('rejectCookies').addEventListener('click', function() {
+                localStorage.setItem('cookiesChoice', 'rejected');
+                localStorage.removeItem('cookiesAccepted');
+                cc.classList.remove('show');
+            });
+        });
+    </script>
+
+</body>
+</html>
