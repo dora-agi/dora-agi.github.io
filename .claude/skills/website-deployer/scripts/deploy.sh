@@ -2,6 +2,13 @@
 # Deploy dora-agi website to production server
 # Usage: ssh dora-website 'bash -s' < deploy.sh
 #   or:  ssh dora-website 'bash -s' < deploy.sh -- --skip-backup
+#
+# This script:
+#   1. Pulls latest code from git
+#   2. Optionally backs up current web root
+#   3. Syncs ONLY web-safe files (excludes .git, CLAUDE.md, .claude/, docs/, etc.)
+#   4. Fixes permissions
+#   5. Reloads nginx and verifies
 
 set -euo pipefail
 
@@ -18,31 +25,52 @@ done
 echo "=== Deploying doratech.cn ==="
 
 # 1. Pull latest code
-echo "[1/5] Pulling latest code..."
+echo "[1/6] Pulling latest code..."
 cd "$REPO_DIR"
 git pull origin main
 
 # 2. Backup (optional)
 if [ "$SKIP_BACKUP" = false ]; then
   BACKUP_DIR="/var/backups/dora-agi/$(date +%Y%m%d_%H%M%S)"
-  echo "[2/5] Backing up to $BACKUP_DIR..."
+  echo "[2/6] Backing up to $BACKUP_DIR..."
   mkdir -p "$BACKUP_DIR"
   cp -r "$WEB_DIR" "$BACKUP_DIR/"
 else
-  echo "[2/5] Skipping backup"
+  echo "[2/6] Skipping backup"
 fi
 
-# 3. Sync files
-echo "[3/5] Syncing to web directory..."
-rsync -av --delete "$REPO_DIR/" "$WEB_DIR/"
+# 3. Sync files — exclude sensitive/internal files
+echo "[3/6] Syncing to web directory (with exclusions)..."
+EXCLUDE_FILE="$REPO_DIR/.deploy-exclude"
+if [ -f "$EXCLUDE_FILE" ]; then
+  rsync -av --delete --exclude-from="$EXCLUDE_FILE" "$REPO_DIR/" "$WEB_DIR/"
+else
+  # Fallback: inline exclusions if .deploy-exclude is missing
+  rsync -av --delete \
+    --exclude='.git/' \
+    --exclude='.gitignore' \
+    --exclude='.claude/' \
+    --exclude='CLAUDE.md' \
+    --exclude='docs/' \
+    --exclude='README.md' \
+    --exclude='CNAME' \
+    --exclude='.DS_Store' \
+    --exclude='.deploy-exclude' \
+    "$REPO_DIR/" "$WEB_DIR/"
+fi
 
-# 4. Fix permissions
-echo "[4/5] Setting permissions..."
+# 4. Clean up leftover sensitive files from previous deploys
+echo "[4/6] Cleaning up any leftover sensitive files..."
+rm -rf "$WEB_DIR/.git" "$WEB_DIR/.claude" "$WEB_DIR/docs"
+rm -f "$WEB_DIR/CLAUDE.md" "$WEB_DIR/README.md" "$WEB_DIR/.gitignore" "$WEB_DIR/CNAME"
+
+# 5. Fix permissions
+echo "[5/6] Setting permissions..."
 chown -R www-data:www-data "$WEB_DIR"
 chmod -R 755 "$WEB_DIR"
 
-# 5. Reload nginx
-echo "[5/5] Reloading nginx..."
+# 6. Reload nginx
+echo "[6/6] Reloading nginx..."
 nginx -t
 systemctl reload nginx
 

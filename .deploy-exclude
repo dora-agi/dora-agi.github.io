@@ -1,0 +1,22 @@
+# Files/dirs to exclude from rsync deployment to web root
+# Used by: deploy.sh --exclude-from=.deploy-exclude
+
+# Git internals
+.git/
+.gitignore
+
+# Claude Code / AI tooling
+.claude/
+CLAUDE.md
+
+# Internal docs and plans
+docs/
+README.md
+
+# GitHub Pages artifacts
+CNAME
+
+# OS artifacts
+.DS_Store
+._*
+Thumbs.db
