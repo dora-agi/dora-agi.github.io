@@ -15,7 +15,7 @@ Run the bundled deploy script via SSH:
 ssh dora-website 'bash -s' < scripts/deploy.sh
 ```
 
-This performs: git pull → backup → rsync to web root → fix permissions → nginx reload → verify HTTP 200.
+This performs: git pull → backup → rsync to web root (excluding `.git/`, `CLAUDE.md`, `.claude/`, `docs/`, etc. via `.deploy-exclude`) → cleanup leftovers → fix permissions → nginx reload → verify HTTP 200.
 
 To skip backup (faster):
 
@@ -23,16 +23,12 @@ To skip backup (faster):
 ssh dora-website 'bash -s' < scripts/deploy.sh -- --skip-backup
 ```
 
-## Manual Deploy
+## Alternative: Server-side Script
 
-If the script isn't available or needs adaptation:
+The server also has an equivalent script at `/root/scripts/update-website.sh`:
 
 ```bash
-ssh dora-website "cd /root/project/dora-agi.github.io && git pull origin main && \
-  rsync -av --delete /root/project/dora-agi.github.io/ /var/www/dora-agi.github.io/ && \
-  chown -R www-data:www-data /var/www/dora-agi.github.io/ && \
-  chmod -R 755 /var/www/dora-agi.github.io/ && \
-  nginx -t && systemctl reload nginx"
+ssh dora-website "/root/scripts/update-website.sh"
 ```
 
 ## Verify
@@ -59,8 +55,15 @@ ssh dora-website "for p in / /terms.html /privacy.html /apps/dora.html; do \
 | Nginx config | `/etc/nginx/sites-available/doratech.cn` |
 | Update script | `/root/scripts/update-website.sh` |
 
+## Security
+
+- **Sensitive files are excluded** from rsync via `.deploy-exclude` in repo root
+- **Nginx blocks** dotfiles (`/.git/`, `/.claude/`), `CLAUDE.md`, `README.md`, and `/docs/` with 404
+- The deploy script also **cleans up leftover sensitive files** from previous deploys
+- If adding new internal files to the repo, add them to `.deploy-exclude`
+
 ## Gotchas
 
 - SSH commands to this server can be slow (~60s for git pull). Use timeouts ≥60s.
 - Always ensure code is pushed to `main` before deploying — the server pulls from `origin/main`.
-- The rsync uses `--delete` — files removed from git will be removed from the server.
+- The rsync uses `--delete` — files removed from git will be removed from the server (except excluded files).

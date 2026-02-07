@@ -79,22 +79,24 @@ No build step required — all files are static HTML/CSS/JS.
 
 ## Deployment
 ```bash
-# SSH to server
-ssh dora-website
+# Recommended: use the repo's deploy script (excludes sensitive files automatically)
+ssh dora-website 'bash -s' < .claude/skills/website-deployer/scripts/deploy.sh
 
-# Full deploy (after git push)
-ssh dora-website "cd /root/project/dora-agi.github.io && git pull origin main && \
-  rsync -av --delete /root/project/dora-agi.github.io/ /var/www/dora-agi.github.io/ && \
-  chown -R www-data:www-data /var/www/dora-agi.github.io/ && \
-  chmod -R 755 /var/www/dora-agi.github.io/ && \
-  nginx -t && systemctl reload nginx"
-
-# Or use the server script
+# Or use the server-side script (equivalent)
 ssh dora-website "/root/scripts/update-website.sh"
+
+# Skip backup for faster deploy
+ssh dora-website 'bash -s' < .claude/skills/website-deployer/scripts/deploy.sh -- --skip-backup
 
 # Verify
 ssh dora-website "curl -s -o /dev/null -w '%{http_code}' https://doratech.cn"
 ```
+
+### Deploy Security
+- `.deploy-exclude` lists files/dirs excluded from rsync (`.git/`, `CLAUDE.md`, `.claude/`, `docs/`, etc.)
+- Nginx config blocks access to dotfiles and internal files as defense-in-depth
+- Deploy script cleans up any leftover sensitive files from previous deploys
+- **When adding new internal files**: add them to `.deploy-exclude`
 
 ## Server Details
 - **SSH alias**: `dora-website` (115.190.184.245)
