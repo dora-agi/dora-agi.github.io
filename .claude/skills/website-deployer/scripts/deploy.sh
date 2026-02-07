@@ -25,22 +25,27 @@ done
 echo "=== Deploying doratech.cn ==="
 
 # 1. Pull latest code
-echo "[1/6] Pulling latest code..."
+echo "[1/7] Pulling latest code..."
 cd "$REPO_DIR"
 git pull origin main
 
-# 2. Backup (optional)
+# 2. Generate version file (short commit hash only, no history exposed)
+DEPLOY_VERSION=$(git rev-parse --short HEAD)
+echo "[2/7] Generating version.json (v=$DEPLOY_VERSION)..."
+printf '{"v":"%s"}\n' "$DEPLOY_VERSION" > "$REPO_DIR/version.json"
+
+# 3. Backup (optional)
 if [ "$SKIP_BACKUP" = false ]; then
   BACKUP_DIR="/var/backups/dora-agi/$(date +%Y%m%d_%H%M%S)"
-  echo "[2/6] Backing up to $BACKUP_DIR..."
+  echo "[3/7] Backing up to $BACKUP_DIR..."
   mkdir -p "$BACKUP_DIR"
   cp -r "$WEB_DIR" "$BACKUP_DIR/"
 else
-  echo "[2/6] Skipping backup"
+  echo "[3/7] Skipping backup"
 fi
 
-# 3. Sync files — exclude sensitive/internal files
-echo "[3/6] Syncing to web directory (with exclusions)..."
+# 4. Sync files — exclude sensitive/internal files
+echo "[4/7] Syncing to web directory (with exclusions)..."
 EXCLUDE_FILE="$REPO_DIR/.deploy-exclude"
 if [ -f "$EXCLUDE_FILE" ]; then
   rsync -av --delete --exclude-from="$EXCLUDE_FILE" "$REPO_DIR/" "$WEB_DIR/"
@@ -59,25 +64,33 @@ else
     "$REPO_DIR/" "$WEB_DIR/"
 fi
 
-# 4. Clean up leftover sensitive files from previous deploys
-echo "[4/6] Cleaning up any leftover sensitive files..."
+# 5. Clean up leftover sensitive files from previous deploys
+echo "[5/7] Cleaning up any leftover sensitive files..."
 rm -rf "$WEB_DIR/.git" "$WEB_DIR/.claude" "$WEB_DIR/docs"
 rm -f "$WEB_DIR/CLAUDE.md" "$WEB_DIR/README.md" "$WEB_DIR/.gitignore" "$WEB_DIR/CNAME"
 
-# 5. Fix permissions
-echo "[5/6] Setting permissions..."
+# 6. Fix permissions
+echo "[6/7] Setting permissions..."
 chown -R www-data:www-data "$WEB_DIR"
 chmod -R 755 "$WEB_DIR"
 
-# 6. Reload nginx
-echo "[6/6] Reloading nginx..."
+# 7. Reload nginx
+echo "[7/7] Reloading nginx..."
 nginx -t
 systemctl reload nginx
 
-# Verify
+# Verify: HTTP status + version match
 STATUS=$(curl -s -o /dev/null -w '%{http_code}' https://doratech.cn)
+REMOTE_VERSION=$(curl -s https://doratech.cn/version.json 2>/dev/null || echo '{}')
 if [ "$STATUS" = "200" ]; then
   echo "=== Deploy successful (HTTP $STATUS) ==="
+  echo "  Local version:  $DEPLOY_VERSION"
+  echo "  Remote version: $REMOTE_VERSION"
+  if echo "$REMOTE_VERSION" | grep -q "$DEPLOY_VERSION"; then
+    echo "  Version verified OK"
+  else
+    echo "  WARNING: Version mismatch — may be cached. Check CDN/browser cache."
+  fi
 else
   echo "=== WARNING: Site returned HTTP $STATUS ==="
   exit 1
