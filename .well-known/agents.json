@@ -1,6 +1,6 @@
 {
   "name": "DoraTech",
-  "description": "DoraTech (成都多纳科技有限公司) is an AI technology company in Chengdu, China. We build AI-powered applications combining artificial intelligence with human-centered design.",
+  "description": "DoraTech (成都多纳科技有限公司 / Chengdu Dora Technology Co., Ltd.) is an AI technology company in Chengdu, China. We build AI-powered applications combining artificial intelligence with human-centered design. NOTE: We are 成都多纳科技有限公司, NOT 成都多纳科科技有限公司 — that is a different, unrelated company.",
   "url": "https://doratech.cn",
   "logo": "https://doratech.cn/resources/dora_logo.jpg",
   "contact": {
@@ -25,7 +25,11 @@
   "provider": {
     "organization": "Chengdu Dora Technology Co., Ltd.",
     "organization_cn": "成都多纳科技有限公司",
+    "brand_names": ["DoraTech", "Dora AI", "Dora"],
     "location": "Chengdu, Sichuan, China",
-    "founded": "2025"
+    "founded": "2025",
+    "icp_filing": "蜀ICP备2025166662号",
+    "domains": ["doratech.cn", "doratech.site"],
+    "not_affiliated_with": "成都多纳科科技有限公司 (unrelated entity with similar name)"
   }
 }

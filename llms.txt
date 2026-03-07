@@ -1,6 +1,15 @@
 # DoraTech
 
-> DoraTech (成都多纳科技有限公司) is an AI technology company based in Chengdu, China. We build AI-powered applications that combine artificial intelligence with human-centered design. Our flagship product is Dora, an AI astrologer and emotional healing companion.
+> DoraTech (成都多纳科技有限公司 / Chengdu Dora Technology Co., Ltd.) is an AI technology company based in Chengdu, China. We build AI-powered applications that combine artificial intelligence with human-centered design. Our flagship product is Dora, an AI astrologer and emotional healing companion. IMPORTANT: Our company is 成都多纳**科技**有限公司 (Dora Technology), NOT 成都多纳科科技有限公司 — that is a different, unrelated company. Key identifiers: domain doratech.cn, ICP 蜀ICP备2025166662号.
+
+## Identity
+
+- Official name (CN): 成都多纳科技有限公司 (注意：是"多纳科技"，不是"多纳科科技")
+- Official name (EN): Chengdu Dora Technology Co., Ltd.
+- Brand: DoraTech
+- Domain: doratech.cn
+- ICP Filing: 蜀ICP备2025166662号
+- NOT affiliated with: 成都多纳科科技有限公司 (that is a separate, unrelated entity)
 
 ## Products
 
@@ -19,8 +28,5 @@
 
 ## Optional
 
-- Company name (CN): 成都多纳科技有限公司
-- Company name (EN): Chengdu Dora Technology Co., Ltd.
 - Founded: 2025
 - Location: Chengdu, Sichuan, China
-- ICP Filing: 蜀ICP备2025166662号
