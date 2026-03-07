@@ -2,5 +2,35 @@ User-agent: *
 Allow: /
 Disallow: /version.json
 
+# AI Crawlers — welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
 # Sitemap
 Sitemap: https://doratech.cn/sitemap.xml
+
+# AI Agent Access
+# llms.txt: https://doratech.cn/llms.txt
+# llms-full.txt: https://doratech.cn/llms-full.txt
+# agents.json: https://doratech.cn/.well-known/agents.json
