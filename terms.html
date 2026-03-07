@@ -209,6 +209,66 @@
         hr {
             border-color: rgba(255, 255, 255, 0.08) !important;
         }
+
+        /* Language Selector */
+        .language-selector .nav-link {
+            background: transparent;
+            margin-left: 0.25rem;
+            padding: 0.35rem 0.7rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.82rem;
+        }
+
+        .language-selector .nav-link:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .language-selector .nav-link i.fa-globe {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+        }
+
+        .dropdown-menu {
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            padding: 0.4rem;
+            background: var(--bg-card);
+        }
+
+        .dropdown-item {
+            padding: 0.5rem 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            transition: background 0.15s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+        }
+
+        .language-selector .dropdown-menu { min-width: 150px; }
+        .language-selector .dropdown-item i.fa-check { color: var(--text-primary); font-size: 0.75rem; }
+
+        /* WebView mode — hide chrome when embedded in app */
+        .webview-mode .navbar,
+        .webview-mode .footer-section,
+        .webview-mode footer,
+        .webview-mode .back-link { display: none !important; }
+        .webview-mode .content-wrapper { padding-top: 20px; }
     </style>
 </head>
 <body>
@@ -219,18 +279,47 @@
                 <img src="resources/dora_logo.jpg" alt="DoraTech Logo" style="height: 40px; border-radius: 8px;">
                 DoraTech
             </a>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown language-selector">
+                    <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLanguageLabel"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                        <li>
+                            <a class="dropdown-item lang-option" href="#" onclick="switchLanguage('zh')" data-lang="zh">
+                                <i class="fas fa-check lang-check-zh" style="visibility: hidden; width: 1rem;"></i>
+                                简体中文
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item lang-option" href="#" onclick="switchLanguage('en')" data-lang="en">
+                                <i class="fas fa-check lang-check-en" style="visibility: hidden; width: 1rem;"></i>
+                                English
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </nav>
 
     <!-- Content -->
     <div class="content-wrapper">
         <a href="index.html" class="back-link">
-            <i class="fas fa-arrow-left"></i> 返回首页
+            <i class="fas fa-arrow-left"></i> <span class="lang-zh">返回首页</span><span class="lang-en">Home</span>
         </a>
 
-        <h1>Dora AI 用户服务协议</h1>
-        <p class="update-date">更新日期：2025年2月7日 | 生效日期：2025年2月7日</p>
+        <h1>
+            <span class="lang-zh">Dora AI 用户服务协议</span>
+            <span class="lang-en">Terms of Service</span>
+        </h1>
+        <p class="update-date">
+            <span class="lang-zh">更新日期：2025年2月7日 | 生效日期：2025年2月7日</span>
+            <span class="lang-en">Last Updated: February 7, 2025 | Effective Date: February 7, 2025</span>
+        </p>
 
+        <div class="lang-zh">
         <p>欢迎您使用 Dora AI（以下简称"本应用"或"本服务"）！本服务协议（以下简称"本协议"）是您（以下简称"用户"或"您"）与<strong>成都多纳科技有限公司</strong>（以下简称"我们"或"开发者"）之间关于使用本应用及相关服务所订立的协议，而非与 Apple Inc.（以下简称"Apple"）之间的协议。我们（而非 Apple）是本应用的唯一责任方。</p>
 
         <div class="warning-box">
@@ -469,12 +558,9 @@
             <p><strong>联系地址</strong>：中国（四川）自由贸易试验区成都高新区府城大道西段399号天府新谷7号楼C座6楼7号</p>
             <p><strong>邮政编码</strong>：610041</p>
         </div>
+        </div>
 
-        <hr style="margin: 4rem 0;">
-
-        <h1>Terms of Service</h1>
-        <p class="update-date">Last Updated: February 7, 2025 | Effective Date: February 7, 2025</p>
-
+        <div class="lang-en">
         <p>Welcome to Dora AI (the "App" or "Service"). This Terms of Service agreement ("Terms") is between you ("User" or "you") and <strong>Chengdu Dora Technology Co., Ltd.</strong> ("we," "us," or "Developer"), and not with Apple Inc. ("Apple"). We, not Apple, are solely responsible for the App and its content.</p>
 
         <div class="warning-box">
@@ -572,6 +658,7 @@
             <p><strong>Email</strong>: <a href="mailto:info@doratech.cn">info@doratech.cn</a></p>
             <p><strong>Address</strong>: Floor 6, Building 7C, Tianfu New Valley, No. 399 Fucheng Avenue West, Chengdu Hi-tech Zone, Sichuan, China 610041</p>
         </div>
+        </div>
 
         <p style="margin-top: 3rem; text-align: center; color: rgba(230, 244, 241, 0.6);">
             <strong>成都多纳科技有限公司 | Chengdu Dora Technology Co., Ltd.</strong>
@@ -599,5 +686,49 @@
     </footer>
 
     <script src="resources/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Language Switcher + WebView Mode -->
+    <script>
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        var langParam = params.get('lang');
+        var currentLang = langParam || localStorage.getItem('language') || 'zh';
+
+        // WebView mode
+        if (params.get('mode') === 'webview') {
+            document.documentElement.classList.add('webview-mode');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            switchLanguage(currentLang);
+        });
+
+        window.switchLanguage = function(lang) {
+            localStorage.setItem('language', lang);
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+            var label = document.getElementById('currentLanguageLabel');
+            if (label) label.textContent = lang === 'zh' ? '简体中文' : 'English';
+
+            document.querySelectorAll('.lang-check-zh, .lang-check-en').forEach(function(c) {
+                c.style.visibility = 'hidden';
+            });
+            var sel = document.querySelector('.lang-check-' + lang);
+            if (sel) sel.style.visibility = 'visible';
+
+            if (lang === 'zh') {
+                document.querySelectorAll('.lang-zh').forEach(function(el) {
+                    el.style.display = el.tagName === 'DIV' || el.tagName === 'SECTION' ? 'block' : 'inline';
+                });
+                document.querySelectorAll('.lang-en').forEach(function(el) { el.style.display = 'none'; });
+            } else {
+                document.querySelectorAll('.lang-zh').forEach(function(el) { el.style.display = 'none'; });
+                document.querySelectorAll('.lang-en').forEach(function(el) {
+                    el.style.display = el.tagName === 'DIV' || el.tagName === 'SECTION' ? 'block' : 'inline';
+                });
+            }
+        };
+    })();
+    </script>
 </body>
 </html>
