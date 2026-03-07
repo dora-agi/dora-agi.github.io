@@ -20,19 +20,20 @@
 
     <style>
         :root {
-            --bg-cream: #FAF8F5;
-            --bg-warm: #F5F2ED;
-            --bg-card: #FFFFFF;
-            --text-primary: #1A1A1A;
-            --text-secondary: #5C5C5C;
-            --text-muted: #8A8A8A;
+            --bg-cream: #0D0F14;
+            --bg-warm: #161922;
+            --bg-card: #161922;
+            --text-primary: #F0F0F5;
+            --text-secondary: #8B90A0;
+            --text-muted: #555B6E;
             --accent-coral: #E8583A;
-            --accent-coral-light: #FEF0EC;
+            --accent-coral-light: rgba(232, 88, 58, 0.12);
             --accent-lavender: #7B6CB0;
-            --accent-lavender-light: #F0EDF8;
+            --accent-lavender-light: rgba(123, 108, 176, 0.12);
             --accent-amber: #D4922A;
-            --accent-amber-light: #FDF3E0;
-            --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.04);
+            --accent-amber-light: rgba(212, 146, 42, 0.12);
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.3);
             --radius-sm: 8px;
             --radius-md: 12px;
         }
@@ -41,17 +42,21 @@
             font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
             line-height: 1.8;
             color: var(--text-primary);
+            background:
+                url("resources/backgrounds/stars.avif") top center / contain no-repeat,
+                url("resources/backgrounds/noise-texture.png") repeat / 256px 256px,
+                var(--bg-cream);
             background-color: var(--bg-cream);
             -webkit-font-smoothing: antialiased;
             font-size: 15px;
         }
 
         .navbar {
-            background-color: rgba(250, 248, 245, 0.96) !important;
+            background-color: rgba(13, 15, 20, 0.96) !important;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid var(--border-subtle);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
         }
 
         .navbar-brand {
@@ -90,7 +95,7 @@
             margin-top: 2.5rem;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(255, 107, 74, 0.2);
+            border-bottom: 1px solid rgba(232, 88, 58, 0.2);
             font-weight: 700;
         }
 
@@ -123,7 +128,7 @@
 
         .contact-box {
             background-color: var(--bg-card);
-            border: 1px solid rgba(45, 42, 50, 0.08);
+            border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
             padding: 1.5rem;
             margin-top: 1rem;
@@ -135,8 +140,8 @@
         }
 
         .warning-box {
-            background-color: var(--accent-lavender-light);
-            border: 1px solid rgba(139, 126, 200, 0.2);
+            background-color: rgba(123, 108, 176, 0.1);
+            border: 1px solid rgba(123, 108, 176, 0.2);
             border-radius: var(--radius-md);
             padding: 1.5rem;
             margin: 1.5rem 0;
@@ -148,8 +153,8 @@
         }
 
         .caps-warning {
-            background-color: var(--accent-amber-light);
-            border: 1px solid rgba(245, 166, 35, 0.3);
+            background-color: rgba(212, 146, 42, 0.1);
+            border: 1px solid rgba(212, 146, 42, 0.25);
             border-radius: var(--radius-md);
             padding: 1.5rem;
             margin: 1.5rem 0;
@@ -159,21 +164,23 @@
         }
 
         footer {
-            background-color: #2D2A32;
-            border-top: none;
-            color: rgba(255, 255, 255, 0.65);
+            background:
+                url("resources/backgrounds/stars.avif") top center / cover no-repeat,
+                var(--bg-card);
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
         }
 
         footer p {
-            color: rgba(255, 255, 255, 0.65);
+            color: var(--text-secondary);
         }
 
         footer a {
-            color: rgba(255, 255, 255, 0.65) !important;
+            color: var(--text-secondary) !important;
         }
 
         footer a:hover {
-            color: rgba(255, 255, 255, 0.9) !important;
+            color: var(--text-primary) !important;
             text-decoration: none;
         }
 
@@ -200,7 +207,7 @@
         }
 
         hr {
-            border-color: rgba(45, 42, 50, 0.1) !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
         }
     </style>
 </head>
