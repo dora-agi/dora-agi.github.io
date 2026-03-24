@@ -12,6 +12,40 @@ Static website for doratech.cn (Dora AI Platform). Served via Nginx on Ubuntu. A
 - `resources/fonts/*.woff2, *.woff` — Font files (Plus Jakarta Sans, DM Sans, Inter)
 - `resources/*.png` — App screenshots and icons
 
+## Content Versioning (App Review Strategy)
+
+Website has two content versions to match the ASO evolution strategy (see `docs/aso/`):
+
+| Version | Files | Description |
+|---------|-------|-------------|
+| **review** (current) | `dora.html`, `index.html` | 审核安全版：无占星/算命/塔罗等敏感词，定位为"AI生活伴侣 & 心灵成长助手" |
+| **astro** | `dora-astro.html`, `index-astro.html` | 完整占星版：包含占星师/本命盘/塔罗等内容，审核通过后切换 |
+
+```bash
+# Switch to full astrology version (after review approval)
+./scripts/swap-content.sh astro
+
+# Switch back to review-safe version
+./scripts/swap-content.sh review
+
+# Check current version
+./scripts/swap-content.sh status
+```
+
+**Rule:** During app review phase, always deploy the review-safe version. After review passes and ASO progresses to v2+, switch to astro version.
+
+## Universal Links (AASA)
+
+Apple App Site Association file served via Nginx `return 200` directive (not from disk) at `/.well-known/apple-app-site-association`. Configured paths:
+
+| Path | Purpose |
+|------|---------|
+| `/alipay/*` | Alipay payment callback |
+| `/wechat/*` | WeChat SDK callback |
+| `/app/*` | General app deep links |
+
+App ID: `55T4D266N5.com.doratech.dora.ios`. Config in `/etc/nginx/sites-available/doratech.cn`.
+
 ## Design System
 
 ### Aesthetic Direction
