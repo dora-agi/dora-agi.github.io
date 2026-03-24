@@ -16,6 +16,11 @@ README.md
 # GitHub Pages artifacts
 CNAME
 
+# Content version backups (only dora.html and index.html go live)
+apps/dora-astro.html
+index-astro.html
+scripts/
+
 # OS artifacts
 .DS_Store
 ._*
