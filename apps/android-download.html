@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh" class="lang-zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dora Android - Download</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="../resources/fonts/fonts.css">
+
+    <style>
+        :root {
+            --bg-cream: #FAF8F5;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B7280;
+            --accent-coral: #E8583A;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --shadow-soft: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            opacity: 0.025;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            z-index: 9999;
+        }
+
+        .container {
+            max-width: 420px;
+            width: 100%;
+            padding: 24px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(0,0,0,0.06);
+            text-align: center;
+        }
+
+        .logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        .version-badge {
+            display: inline-block;
+            font-size: 12px;
+            color: var(--text-secondary);
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 20px;
+            padding: 3px 12px;
+            margin-bottom: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-align: left;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(0,0,0,0.12);
+            border-radius: var(--radius-sm);
+            font-size: 16px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+            background: #FAFAFA;
+        }
+
+        .input-group input:focus {
+            border-color: var(--text-primary);
+            background: #fff;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--text-primary);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover { opacity: 0.85; }
+        .btn:active { opacity: 0.75; }
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .error-msg {
+            color: var(--accent-coral);
+            font-size: 13px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .download-section {
+            display: none;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: #34A853;
+            color: #fff;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            transition: opacity 0.2s;
+        }
+
+        .download-btn:hover { opacity: 0.85; }
+
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .install-note {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="../resources/dora-icon.png" alt="Dora" class="logo" onerror="this.style.display='none'">
+            <h1>Dora Android</h1>
+            <p class="subtitle">AI Life Companion</p>
+            <div class="version-badge" id="versionBadge">Beta</div>
+
+            <!-- Password Gate -->
+            <div id="authSection">
+                <div class="input-group">
+                    <label>Access Code</label>
+                    <input type="password" id="accessCode" placeholder="Enter access code" autocomplete="off"
+                           onkeydown="if(event.key==='Enter')verify()">
+                </div>
+                <button class="btn" onclick="verify()">Verify</button>
+                <div class="error-msg" id="errorMsg">Incorrect access code</div>
+            </div>
+
+            <!-- Download Section (hidden until verified) -->
+            <div class="download-section" id="downloadSection">
+                <a class="download-btn" id="downloadLink" href="#">
+                    <svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 8.67l1.42 1.42L11 5.83V16h2V5.83l4.25 4.26 1.42-1.42L12 2z" transform="rotate(180 12 12)"/></svg>
+                    Download APK
+                </a>
+                <div class="install-note">
+                    Download the APK file, then open it to install.<br>
+                    You may need to enable "Install from unknown sources" in Settings.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="/">&larr; doratech.cn</a>
+        </div>
+    </div>
+
+    <script>
+        // Simple hash-based verification (not security-critical, just a gate)
+        // Password: "dora2026"
+        const HASH = '4bc00bfc';
+
+        function simpleHash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return (hash >>> 0).toString(16).slice(0, 8);
+        }
+
+        function verify() {
+            const code = document.getElementById('accessCode').value.trim();
+            if (simpleHash(code) === HASH) {
+                document.getElementById('authSection').style.display = 'none';
+                document.getElementById('downloadSection').style.display = 'block';
+                document.getElementById('downloadLink').href = '/releases/dora-2.1.1.apk';
+                sessionStorage.setItem('verified', '1');
+            } else {
+                const errEl = document.getElementById('errorMsg');
+                errEl.style.display = 'block';
+                setTimeout(() => errEl.style.display = 'none', 3000);
+            }
+        }
+
+        // Auto-unlock if already verified this session
+        if (sessionStorage.getItem('verified') === '1') {
+            document.getElementById('authSection').style.display = 'none';
+            document.getElementById('downloadSection').style.display = 'block';
+            document.getElementById('downloadLink').href = '/releases/dora-2.1.1.apk';
+        }
+    </script>
+</body>
+</html>
