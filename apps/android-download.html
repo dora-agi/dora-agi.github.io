@@ -258,7 +258,7 @@
             if (simpleHash(code) === HASH) {
                 document.getElementById('authSection').style.display = 'none';
                 document.getElementById('downloadSection').style.display = 'block';
-                document.getElementById('downloadLink').href = '/releases/dora-2.1.3.apk';
+                document.getElementById('downloadLink').href = '/releases/dora-2.2.0.apk';
                 sessionStorage.setItem('verified', '1');
             } else {
                 const errEl = document.getElementById('errorMsg');
@@ -271,7 +271,7 @@
         if (sessionStorage.getItem('verified') === '1') {
             document.getElementById('authSection').style.display = 'none';
             document.getElementById('downloadSection').style.display = 'block';
-            document.getElementById('downloadLink').href = '/releases/dora-2.1.3.apk';
+            document.getElementById('downloadLink').href = '/releases/dora-2.2.0.apk';
         }
     </script>
 </body>
